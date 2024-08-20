@@ -1,0 +1,5 @@
+- [ ] types for userSlice
+- [ ] 
+- [ ] 
+- [ ] Prettier
+- [ ] Lazy loading for routes.js
