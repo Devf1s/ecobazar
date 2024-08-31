@@ -1,0 +1,85 @@
+@import '@/styles/_variables';
+
+.topBar {
+	padding: 12px 0;
+	background: $white;
+	box-shadow: 0 1px 0#e5e5e5;
+}
+
+.between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.location {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	img {
+		max-width: 15px;
+		display: inline-block;
+	}
+
+	p {
+		color: $gray-6;
+		font-size: $font-tiny;
+		line-height: $line-tiny;
+		font-weight: 400;
+	}
+}
+
+.userOptions {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.dropdown {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+
+	color: $gray-6;
+	font-size: $font-tiny;
+	line-height: $line-tiny;
+	font-weight: 400;
+}
+
+.divider {
+	width: 1px;
+	// margin: 0 20px;
+	background: $gray-1;
+	align-self: stretch;	
+}
+
+// .language {
+	
+// }
+
+// .currency {
+
+// }
+
+.authLinks {
+	font-size: $font-tiny;
+	line-height: $line-tiny;
+	font-weight: 400;
+
+	a {
+		color: $gray-6;
+		transition: all .2s ease;
+
+		&:hover {
+			color: $gray-8;
+		}
+	}
+
+	span {
+		color: $gray-6;
+		font-size: inherit;
+		 
+		padding: 0 4px;
+	}
+}

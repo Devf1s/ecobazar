@@ -1,0 +1,186 @@
+@import '@/styles/_variables';
+
+.mainHeader {
+	padding: 24px 0;
+}
+
+.between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	img {
+		width: 32px;
+		height: 32px;
+		display: block;
+	}
+
+	p {
+		font-size: 32px;
+		font-weight: 500;
+		line-height: 38px;
+		letter-spacing: -3%;
+		color: $green-gray-9;
+	}
+}
+
+.search {
+	height: 45px;
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&:before {
+		content: '';
+		width: 20px;
+		height: 20px;
+		background: url('../../../assets/images/icons/search.svg') center no-repeat;
+		position: absolute;
+		top: 50%;
+		left: 15px;
+		transform: translateY(-50%);
+		user-select: none;
+		z-index: 1;
+	}
+
+	&Bar {
+		width: 100%;
+		height: 100%;
+		max-width: 500px;
+		padding: 0 64px 0 44px;
+		border: 1px solid $gray-1;
+		border-radius: 6px 0 0 6px;
+
+		font-size: 15px;
+		font-weight: 400;
+		line-height: 21px;
+		color: $gray-9;
+
+		display: flex;
+		align-items: center;
+
+		&:placeholder {
+			color: $gray-5;
+		}
+	}
+
+	&Btn {
+		height: 100%;
+		padding: 0 24px;
+		border-radius: 0 6px 6px 0;
+		background: $primary;
+
+		color: $white;
+		font-size: $font-sm;
+		line-height: $line-sm-600;
+		font-weight: 600;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		transition: all .3s ease;
+
+		&:hover {
+			background: $hard-primary;
+		}
+	}
+}
+
+.shopping {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.wishlist {
+	width: 32px;
+	height: 32px;
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	img {
+		max-width: 28px;
+		display: inline-block;
+	}
+}
+
+.divider {
+	width: 1px;
+	margin: 5px 0;
+
+	background: $gray-2;
+	align-self: stretch;
+}
+
+.cart {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	&Icon {
+		width: 34px;
+		height: 34px;
+		position: relative;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		img {
+			max-width: 26px;
+		}
+	}
+
+	&Badge {
+		position: absolute;
+		top: -2px;
+		right: -2px;
+		width: 18px;
+		height: 18px;
+
+		border: 1px solid $white;
+		background: $hard-primary;
+		border-radius: 50%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		span {
+			font-size: 10px;
+			font-weight: 400;
+			line-height: 10px;
+			color: $white;
+
+			padding-bottom: 1px;
+		}
+	}
+
+	&Info {
+		p {
+			font-size: 11px;
+			font-weight: 400;
+			line-height: 13px;
+			color: $gray-7;
+		}
+
+		span {
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 14px;
+			color: $gray-9;
+		}
+	}
+}

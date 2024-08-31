@@ -1,8 +1,9 @@
 import { FC } from 'react';
+import styles from './Login.module.scss';
 
 const Login: FC = () => {
 	return (
-		<div>
+		<div className={styles.login}>
 			Login
 		</div>
 	)

@@ -2,7 +2,7 @@ STRUCTURE:
 
 --- PAGES:
 - [ ] Homepage ( V1 ) // V2 - good hero, possible implementation, but then header is ugly
-- [ ] Shop ( V1 ) // V2 - 
+- [ ] Shop ( V1 )
 
 
 --- COMPONENTS:
@@ -22,12 +22,13 @@ STRUCTURE:
 - [ ] Heart header -> WISHLIST PAGE
 
 
-GENERAL FUNCTIONAL:
+GENERAL TASKS:
 - [ ] types for userSlice
-- [ ] create paths for ts config, to avoid ../../../
+- [ ] create paths for bg url ( MainHeader.module.scss )
 - [ ] Prettier
 - [ ] Lazy loading for routes.js
 - [ ] Create slider for Testimonials section
+
 
 
 
