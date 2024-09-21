@@ -1,0 +1,9 @@
+.stars {
+	display: inline-flex;
+}
+
+.star {
+	max-width: 100%;
+	display: inline-block;
+	user-select: none;
+}

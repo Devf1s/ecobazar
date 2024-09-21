@@ -80,23 +80,6 @@
 		font-weight: 400;
 		opacity: 0.8;
 	}
-
-	&Btn {
-		width: 100%;
-		max-width: 191px;
-		padding: 16px 0;
-		gap: 16px;
-
-		background: $white;
-		border-radius: 53px;
-		justify-content: center;
-
-		transition: background .2s ease-out;
-
-		&:hover {
-			background: $gray-light;
-		}
-	}
 }
 
 .side {
@@ -167,46 +150,5 @@
 		font-weight: 400;
 
 		margin-bottom: 24px;
-	}
-
-	&Btn {
-		gap: 12px;
-	}
-}
-
-.mainItem,
-.sideItem {
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-.btn {
-	color: $primary;
-	font-size: $font-md;
-	line-height: $line-md-600;
-	font-weight: 600;
-
-	display: flex;
-	align-items: center;
-	user-select: none;
-
-	* {
-		transition: all .2s ease;
-	}
-	
-
-	img {
-		max-width: 15px;
-	}
-
-	&:hover {
-		img {
-			transform: translateX(2px);
-		}
-	}
-
-	&:active {
-		opacity: 0.8;
 	}
 }

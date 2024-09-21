@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '@/components/common/Container';
-import { dropdown, pin } from '../../../assets/images';
+import { dropdown, pin } from '../../../assets/images/images';
 import styles from './TopBar.module.scss';
 
 const TopBar: FC = () => {

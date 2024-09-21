@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { features } from '@/config/features';
+import { features } from '@/data/features';
 import styles from './Features.module.scss';
 
 const Features: FC = () => {

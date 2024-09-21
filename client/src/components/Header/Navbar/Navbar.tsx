@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import Container from '@/components/common/Container';
-import { phone, arrowDown } from '@images/index';
-import { navItems } from '@/config/navigation';
+import { navItems } from '@/data/navigation';
+import { ArrowDown } from '@images/components';
+import { phone } from '@images/images';
 import styles from './Navbar.module.scss';
 
 const Navbar: FC = () => {
@@ -23,10 +24,7 @@ const Navbar: FC = () => {
 									{item.title}
 									{item.isDropdown &&
 										<div className={styles.arrow}>
-											<img
-												src={arrowDown}
-												alt={item.title}
-											/>
+											<ArrowDown />
 										</div>
 									}
 								</NavLink>

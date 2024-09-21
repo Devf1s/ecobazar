@@ -1,0 +1,116 @@
+@import '@/styles/_variables';
+
+.newsletter {
+	padding: 40px 0;
+	background: $bg-gray;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.content {
+	width: 100%;
+	max-width: 448px;
+}
+
+.title {
+	color: $gray-9;
+	font-size: $font-xxl;
+	line-height: $line-xxl;
+	font-weight: 600;
+
+	margin-bottom: 4px;
+}
+
+.text {
+	color: $gray-4;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 400;
+}
+
+.inputWrapper {
+	width: 100%;
+	max-width: 492px;
+	
+	display: flex;
+	position: relative;
+}
+
+.email {
+	width: 100%;
+	padding: 14px 68px 14px 24px;
+
+	background: $white;
+	border: 1px solid $gray-1;
+	border-radius: 48px;
+
+	color: $gray-9;
+	font-size: $font-md;
+	line-height: $line-md;
+	font-weight: 400;
+
+	&::placeholder {
+		color: $gray-5;
+	}
+}
+
+.button {
+	color: $white;
+	background: $primary;
+	border-radius: 43px;
+	padding: 16px 40px;
+
+	position: absolute;
+	top: 0;
+	right: -44px;
+	z-index: 10;
+	transition: all .2s ease;
+
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+	text-align: center;
+
+	&:hover {
+		background: $hard-primary;
+	}
+}
+
+.social {
+	&Links {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	&Item {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		transition: all .2s;
+
+		&:hover {
+			background: $primary;
+
+			.socialLink {
+				color: $white;
+			}
+		}
+	}
+
+	&Link {
+		display: block;
+		max-height: 18px;
+		color: $gray-7;
+		transition: inherit;
+	}
+}

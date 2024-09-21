@@ -1,0 +1,43 @@
+@import '@/styles/_variables';
+
+.overlay {
+	width: 100%;
+	min-height: 100vh;
+	padding: 30px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.modal {
+	width: 100%;
+	max-width: 1320px;
+	background: $white;
+	border-radius: 8px;
+	padding: 40px;
+
+	&Inner {
+		display: flex;
+		gap: 24px;
+	}
+	
+	&Images {
+
+	}
+
+	&Content {
+
+	}
+
+	&Title {
+
+	}
+
+	
+}

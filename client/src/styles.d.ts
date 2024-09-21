@@ -10,9 +10,15 @@ declare module "*.css" {
 }
 
 declare module "*.svg" {
+	import * as React from 'react';
+
+	// Named export for React component
+	export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+
+	// Default export for string (e.g., for <img> src)
 	const content: string;
 	export default content;
-}
+} 
 
 declare module "*.png" {
 	const content: string;

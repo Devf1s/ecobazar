@@ -1,0 +1,16 @@
+@import '@/styles/_variables';
+
+.posts {
+	padding-bottom: 60px;
+}
+
+.title {
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}

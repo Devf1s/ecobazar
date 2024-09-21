@@ -1,6 +1,7 @@
 import { FC } from 'react';
-import { mainBanners, sideBanners } from '@/config/banners';
-import { greenArrow } from '@/assets/images';
+import { mainBanners, sideBanners } from '@/data/banners';
+import ShopButton from '@/components/Buttons/ShopButton/ShopButton';
+import classNames from 'classnames';
 import styles from './Banner.module.scss';
 
 const Banner: FC = () => {
@@ -10,7 +11,7 @@ const Banner: FC = () => {
 				{mainBanners.map(mainBanner =>
 					<div
 						key={mainBanner.id}
-						className={styles.mainItem}
+						className={`${styles.mainItem} bg-image`}
 						style={{ backgroundImage: `url(${mainBanner.bgImage})` }}
 					>
 						<div className={styles.mainContent}>
@@ -28,10 +29,7 @@ const Banner: FC = () => {
 									{mainBanner.description}
 								</p>
 							</div>
-							<button className={`${styles.mainBtn} ${styles.btn}`}>
-								{mainBanner.btnText}
-								<img src={greenArrow} alt='Green Arrow' />
-							</button>
+							<ShopButton />
 						</div>
 					</div>
 				)}
@@ -39,11 +37,11 @@ const Banner: FC = () => {
 					{sideBanners.map(sideBanner =>
 						<div
 							key={sideBanner.id}
-							className={
-								[styles.sideItem, sideBanner.id === 2 && styles.sideItemCenter]
-									.filter(Boolean)
-									.join(' ')
-							}
+							className={classNames(
+								styles.sideItem,
+								sideBanner.id === 2 && styles.sideItemCenter,
+								'bg-image'  
+							)}
 							style={{ backgroundImage: `url(${sideBanner.bgImage})` }}
 						>
 							<span className={styles.sideLabel}>
@@ -64,10 +62,7 @@ const Banner: FC = () => {
 									{sideBanner.description}
 								</p>
 							}
-							<button className={`${styles.sideBtn} ${styles.btn}`}>
-								{sideBanner.btnText}
-								<img src={greenArrow} alt='Green Arrow' />
-							</button>
+							<ShopButton />
 						</div>
 					)}
 				</div>

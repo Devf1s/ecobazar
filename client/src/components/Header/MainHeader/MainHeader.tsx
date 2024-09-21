@@ -1,6 +1,7 @@
 import { FC, ChangeEvent, KeyboardEvent, useState } from 'react';
 import Container from '@/components/common/Container';
-import { bag, heart, logo } from '@images/index';
+import Logo from '@/components/common/Logo/Logo';
+import { bag, heart, logo } from '@images/images';
 import styles from './MainHeader.module.scss';
 
 const MainHeader: FC = () => {
@@ -21,10 +22,7 @@ const MainHeader: FC = () => {
 		<div className={styles.mainHeader}>
 			<Container>
 				<div className={styles.between}>
-					<div className={styles.logo}>
-						<img src={logo} alt='Logo' />
-						<p>Ecobazar</p>
-					</div>
+					<Logo />
 					<div className={styles.search}>
 						<input
 							type='search'

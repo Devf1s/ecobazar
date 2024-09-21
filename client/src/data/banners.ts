@@ -10,8 +10,7 @@ export const mainBanners: MainBannerItem[] = [
 		bgImage: freshFood,
 		title: 'Fresh & Healthy Organic Food',
 		description: 'Free shipping on all your order.',
-		discount: '30%',
-		btnText: 'Shop now'
+		discount: '30%'
 	}
 ];
 
@@ -22,15 +21,13 @@ export const sideBanners: SideBannerItem[] = [
 		bgImage: summerSale,
 		label: 'Summer sale',
 		description: 'Only Fruit & Vegetable',
-		discount: '75%',
-		btnText: 'Shop Now'
+		discount: '75%'
 	},
 	{
 		id: 2,
 		type: 'side',
 		bgImage: dealMonth,
 		label: 'Best deal',
-		title: 'Special Products Deal of the Month',
-		btnText: 'Shop Now'
+		title: 'Special Products Deal of the Month'
 	}
 ];

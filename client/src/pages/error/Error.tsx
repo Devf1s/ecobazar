@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { notFound } from '../../assets/images';
+import { notFound } from '../../assets/images/images';
 import { RouteNames } from '../../consts/routes';
 import styles from './Error.module.scss';
 

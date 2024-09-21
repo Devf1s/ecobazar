@@ -5,7 +5,6 @@ interface MainBannerItem {
 	title: string; 
 	description: string;
 	discount: string;
-	btnText: string;
 }
 
 interface SideBannerItem {
@@ -16,7 +15,14 @@ interface SideBannerItem {
 	title?: string; 
 	description?: string;
 	discount?: string;
-	btnText: string;
 }
 
-export type { MainBannerItem, SideBannerItem };
+interface DiscountBannerItem {
+	id: number;
+	bgImage: string;
+	label: string;
+	discount: string; 
+	text: string;
+}
+
+export type { MainBannerItem, SideBannerItem, DiscountBannerItem };
