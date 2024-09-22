@@ -1,7 +1,10 @@
-import Home from '../pages/home/Home';
-import Login from '../pages/login/Login';
+import Home from '@/pages/home/Home';
+import Login from '@/pages/login/Login';
+import Error from '@/pages/error/Error';
 
 // const Page = lazy(() => import(''));
+// const Login = lazy(() => import(''));
+// const Error = lazy(() => import(''));
 
 interface Route {
 	path: string;
@@ -9,20 +12,28 @@ interface Route {
 }
 
 export enum RouteNames {
-	HOME = '/home',
-	LOGIN = '/login',
+	HOME_ROUTE = '/',
+	SHOP_ROUTE = '/shop',
+	LOGIN_ROUTE = '/login',
+	LOGOUT_ROUTE = '/logout',
+	REGISTER_ROUTE = '/register',
+	ERROR_ROUTE = '/error'
 }
 
 export const guestRoutes: Route[] = [
 	{
-		path: RouteNames.LOGIN,
+		path: RouteNames.LOGIN_ROUTE,
 		element: Login
 	},
 ];
 
 export const authRoutes: Route[] = [
 	{
-		path: RouteNames.HOME,
+		path: RouteNames.HOME_ROUTE,
 		element: Home
+	},
+	{
+		path: RouteNames.ERROR_ROUTE,
+		element: Error
 	},
 ];

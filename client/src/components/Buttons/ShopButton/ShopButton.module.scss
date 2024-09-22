@@ -1,0 +1,66 @@
+@import '@/styles/_variables';
+
+.button {
+	font-size: $font-md;
+	font-weight: 600;
+	line-height: $line-md-600;
+	
+	display: inline-flex;
+	align-items: center;
+	user-select: none;
+	gap: 12px;
+
+	transition: all .2s ease-out;
+
+	&:active {
+		color: $primary-hover;
+	}
+
+	&-sm {
+		padding: 14px 32px;
+
+		font-size: $font-sm;
+		line-height: $line-sm-600;
+	}
+
+	&-md {
+		padding: 16px 40px;
+		gap: 16px;
+	}
+}
+
+.arrow {
+	max-width: 15px;
+	display: inline-block;
+}
+
+.bg {
+	border-radius: 53px;
+	justify-content: center;	
+
+	&-transparent {
+		color: $primary;
+
+		&:hover {
+			color: $link-hover;
+		}
+	}
+
+	&-white {
+		color: $primary;
+		background: $white;
+
+		&:hover {
+			background: $gray-light;
+		}
+	}
+
+	&-green {
+		color: $white;
+		background: $primary;
+
+		&:hover {
+			background: $hard-primary;
+		}
+	}
+}

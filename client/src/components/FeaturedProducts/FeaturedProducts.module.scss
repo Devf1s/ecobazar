@@ -1,0 +1,11 @@
+.products {
+	padding-bottom: 60px;
+}
+
+.container {
+	display: flex;
+
+	& > * {
+		flex: 1 0 20%;
+	}
+}

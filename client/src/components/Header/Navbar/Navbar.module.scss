@@ -1,0 +1,101 @@
+@import '@/styles/_variables';
+
+.navbar {
+	padding: 16px 0;
+	background: $gray-8;
+
+
+}
+
+.between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.item {
+	margin-right: 32px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.link {
+	color: $gray-4;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 500;
+
+	display: flex;
+	align-items: center;
+	gap: 4px;
+
+	transition: all .2s ease;
+
+	&:hover {
+		color: $white;
+	}
+
+	&:active {
+		opacity: 0.8;
+	}
+}
+
+.arrow {
+	width: 16px;
+	height: 16px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		max-width: 10px;
+		display: inline-block;
+	}
+}
+
+.list {
+	display: flex;
+	align-items: center;
+}
+
+.phone {
+	&Link {
+		min-height: 28px;
+
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		color: $white;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 500;
+
+		&:hover {
+			text-decoration: underline;
+			transition: all .1s ease;
+
+			img {
+				animation: tilt 0.3s ease-in-out;
+			}
+		}
+	}
+}
+
+@keyframes tilt {
+	0%, 100% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(-5deg); 
+	}
+	50% {
+		transform: rotate(5deg); 
+	}
+	75% {
+		transform: rotate(-5deg);
+	}
+}

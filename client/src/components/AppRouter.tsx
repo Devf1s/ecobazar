@@ -16,7 +16,7 @@ const AppRouter: FC = () => {
 						element={<route.element />}
 					/>
 				)}
-				<Route path='*' element={<Navigate to={RouteNames.HOME} replace />} />
+				<Route path='*' element={<Navigate to={RouteNames.ERROR_ROUTE} replace />} />
 			</Routes>
 			:
 			<Routes>
@@ -27,7 +27,7 @@ const AppRouter: FC = () => {
 						element={<route.element />}
 					/>
 				)}
-				<Route path='*' element={<Navigate to={RouteNames.LOGIN} replace />} />
+				<Route path='*' element={<Navigate to={RouteNames.LOGIN_ROUTE} replace />} />
 			</Routes>
 	)
 }

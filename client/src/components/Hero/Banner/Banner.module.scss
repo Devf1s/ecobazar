@@ -1,0 +1,154 @@
+@import '@/styles/_variables';
+
+.banner {
+	padding-bottom: 24px;
+}
+
+.container {
+	display: flex;
+	gap: 24px;
+}
+
+.main {
+	&Item {
+		flex: 1 0 66.06%;
+		min-height: 600px;
+		border-radius: 10px;
+		padding: 60px;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&Content {
+		width: 100%;
+		max-width: 589px;
+	}
+
+	&Title {
+		color: $white;
+		font-size: $font-h2;
+		line-height: $line-h2;
+		font-weight: 600;
+	}
+
+	&Discount {
+		position: relative;
+		margin: 28px 0;
+		padding-left: 12px;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 2px;
+			height: 100%;
+			background: $soft-primary;
+		}
+	}
+
+	&Sale {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 8px;
+
+		color: $white;
+		font-size: $font-xl;
+		line-height: $line-xl;
+		font-weight: 500;
+	}
+
+	&Badge {
+		font-size: $font-xl;
+		line-height: $line-xl;
+		text-transform: uppercase;
+		font-weight: 600;
+
+		color: $white;
+		background: $warning;
+		border-radius: 5px;
+		padding: 4px 12px;
+	}
+
+	&Desc {
+		color: $white;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+		opacity: 0.8;
+	}
+}
+
+.side {
+	&Container {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	&Item {
+		flex: 1 0 33.96%;
+		border-radius: 10px;
+		padding: 32px;
+
+		&Center {
+			padding: 40px;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+
+			.sideLabel {
+				color: $white;
+			}
+		}
+	}
+
+	&Label {
+		font-size: $font-sm;
+		font-weight: 500;
+		letter-spacing: 3%;
+		text-transform: uppercase;
+
+		&Black {
+			color: $gray-9;
+		}
+
+		&White {
+			color: $white;
+		}
+	}
+
+	&Title {
+		color: $white;
+		font-size: $font-h5;
+		line-height: $line-h5;
+		font-weight: 600;
+
+		margin: 12px 0 32px;
+	}
+
+	&Discount {
+		color: $gray-9;
+		font-size: $font-h5;
+		line-height: $line-h5;
+		text-transform: uppercase;
+		font-weight: 600;
+
+		margin: 8px 0 12px;
+	}
+
+	&Desc {
+		color: $gray-6;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+
+		margin-bottom: 24px;
+	}
+}

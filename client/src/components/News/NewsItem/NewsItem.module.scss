@@ -1,0 +1,101 @@
+@import '@/styles/_variables';
+
+.item {
+	filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.08));
+}
+
+.img {
+	display: flex;
+	position: relative;
+	border-radius: 8px 8px 0 0;
+
+	img {
+		max-width: 100%;
+		display: inline-block;
+		border-radius: inherit;
+	}
+}
+
+.date {
+	position: absolute;
+	left: 24px;
+	bottom: 24px;
+	
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	background: $white;
+	padding: 6px 15px 10px;
+	border-radius: 4px;
+}
+
+.day {
+	color: $gray-9;
+	font-size: $font-xl;
+	line-height: $line-xl;
+	font-weight: 500;
+}
+
+.month {
+	color: $gray-5;
+	font-size: 12px;
+	line-height: 1;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+.content {
+	background: $white;
+	border-radius: 0 0 8px 8px;
+	padding: 24px;
+}
+
+.metadata {
+	display: flex;
+	gap: 16px;
+
+	&Item {
+		display: flex;
+		align-items: center;
+		gap: 4px;
+
+		p {
+			font-size: $font-sm;
+			line-height: $line-sm;
+			font-weight: 400;
+		}
+	}
+}
+
+.category {
+	p {
+		color: $gray-7;
+	}
+}
+
+.author {
+	p {
+		color: $gray-7;
+	}
+
+	span {
+		color: $gray-5;
+	}
+}
+
+.comments {
+	p {
+		color: $gray-6;
+	}
+}
+
+.title {
+	color: $gray-9;
+	font-size: $font-lg;
+	line-height: $line-lg;
+	font-weight: 500;
+	
+	margin: 8px 0 20px;
+}

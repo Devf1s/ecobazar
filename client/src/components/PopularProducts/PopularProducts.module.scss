@@ -1,0 +1,13 @@
+.products {
+	padding-bottom: 60px;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	& > * {
+		flex: 1 0 20%;
+	}
+}

@@ -1,0 +1,13 @@
+.stars {
+	display: inline-flex;
+}
+
+.star {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	img {
+		user-select: none;
+	}
+}

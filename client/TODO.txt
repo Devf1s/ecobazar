@@ -2,7 +2,7 @@ STRUCTURE:
 
 --- PAGES:
 - [ ] Homepage ( V1 ) // V2 - good hero, possible implementation, but then header is ugly
-- [ ] Shop ( V1 ) // V2 - 
+- [ ] Shop ( V1 )
 
 
 --- COMPONENTS:
@@ -22,18 +22,20 @@ STRUCTURE:
 - [ ] Heart header -> WISHLIST PAGE
 
 
-GENERAL FUNCTIONAL:
+GENERAL TASKS:
 - [ ] types for userSlice
-- [ ] create paths for ts config, to avoid ../../../
+- [ ] create paths for bg url ( MainHeader.module.scss )
 - [ ] Prettier
 - [ ] Lazy loading for routes.js
+- [ ] Links and paths ( update routeNames )
 - [ ] Create slider for Testimonials section
+- [ ] Problem with border in POPULAR PRODUCTS
+- [ ] Create ReadMe button and change in NEWS 
+- [ ] Add script ( class active ) for items that should have a hover effect from the beginning
 
 
-
-
-COPY PASTE
-
+COPY PASTE:
 https://x.com/
 https://www.pinterest.com/
 https://www.facebook.com/
+https://www.instagram.com/

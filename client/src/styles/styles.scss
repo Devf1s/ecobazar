@@ -12,9 +12,26 @@ textarea {
 	font-family: 'Poppins', sans-serif;
 }
 
-.container {
-    width: 100%;
-    max-width: 1440px;
-    padding: 0 50px;
+img {
+    user-select: none;
 }
 
+.container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+.bg-image {
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.title {
+	color: $gray-9;
+	font-size: $font-h5;
+	line-height: $line-h5;
+	font-weight: 600;
+}

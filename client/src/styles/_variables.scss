@@ -1,0 +1,78 @@
+//* --- Main Colors --- *//
+// General
+$primary: #00b207;
+$soft-primary: #84d187;
+$hard-primary: #2c742f;
+$warning: #ff8a00;
+$danger: #ea4b48;
+$blue: #2388ff;
+$white: #fff;
+
+// Gray 
+$gray-9: #1a1a1a;
+$gray-8: #333333;
+$gray-7: #4d4d4d;
+$gray-6: #666666;
+$gray-5: #808080;
+$gray-4: #999999;
+$gray-3: #b3b3b3;
+$gray-2: #cccccc;
+$gray-1: #e6e6e6;
+$gray-light: #f2f2f2;
+
+// Green Gray
+$green-gray-9: #002603;
+$green-gray-8: #173b1a;
+$green-gray-7: #2b572e;
+$green-gray-6: #406b42;
+$green-gray-5: #618062;
+$green-gray-4: #7a997c;
+$green-gray-3: #96b297;
+$green-gray-2: #b4ccb4;
+$green-gray-1: #dae5da;
+$green-gray-light: #edf2ee;
+
+
+//* --- Background Colors --- *//
+$bg-gray: #f7f7f7;
+
+
+//* --- Hovers --- *//
+$link-hover: #2ec130;
+$primary-hover: rgb(0, 178, 7, 0.75);
+
+
+//* --- Font sizes --- *//
+// Body Font sizes
+$font-tiny: 12px;
+$font-sm: 14px;
+$font-md: 16px; 
+$font-lg: 18px;
+$font-xl: 20px;
+$font-xxl: 24px;
+
+// Heading Font sizes
+$font-h5: 32px;
+$font-h4: 36px;
+$font-h3: 40px; 
+$font-h2: 48px;
+$font-h1: 56px;
+$font-display: 72px;
+
+// Body Line heights
+$line-tiny: 16px;
+$line-sm: 21px;
+$line-sm-600: 17px; // for font weight 600 
+$line-md: 24px;
+$line-md-600: 19px; // for font weight 600  
+$line-lg: 27px; 
+$line-xl: 30px;
+$line-xxl: 36px;
+
+// Heading Line heights
+$line-h5: 38px;
+$line-h4: 43px;
+$line-h3: 48px; 
+$line-h2: 58px;
+$line-h1: 67px; 
+$line-display: 86px; 

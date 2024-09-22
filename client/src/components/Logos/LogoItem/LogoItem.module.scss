@@ -1,0 +1,33 @@
+@import '@/styles/_variables';
+
+.logo {
+	max-height: 32px;
+	display: inline-block;
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		right: -80px;
+		top: 0;
+		width: 1px;
+		height: 100%;
+		background: $gray-1;
+	}
+
+	&:last-child {
+		&:after {
+			display: none;
+		}
+	}
+}
+
+.icon {
+	color: $gray-2;
+	cursor: pointer;
+	transition: all .3s ease;
+	
+	&:hover {
+		color: $primary;
+	}
+}

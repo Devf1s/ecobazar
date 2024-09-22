@@ -1,0 +1,28 @@
+@import '@/styles/_variables';
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	&--black {
+		p { color: $gray-9; }
+	}
+
+	&--white {
+		p { color: $white; }
+	}
+
+	img {
+		width: 32px;
+		height: 32px;
+		display: block;
+	}
+
+	p {
+		font-size: 32px;
+		font-weight: 500;
+		line-height: 38px;
+		letter-spacing: -0.03em;	
+	}
+}

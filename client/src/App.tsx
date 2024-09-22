@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import AppRouter from './components/AppRouter';
-import Navbar from './components/Navbar/Navbar';
+import Header from './components/Header/Header';
 
 const App: FC = () => {
     return (
         <>
-            <Navbar />
+            <Header />
             <AppRouter />
         </>
     )

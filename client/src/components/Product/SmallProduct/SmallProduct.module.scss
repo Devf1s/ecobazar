@@ -1,0 +1,106 @@
+@import '../Product.module.scss';
+
+.product {
+	background: $white;
+	border: 1px solid $gray-1;
+	margin: -1px -1px 0 0;
+
+	&Img {
+		position: relative;
+		padding: 5px;
+
+		img {
+			max-width: 100%;
+			display: inline-block;
+		}
+	}
+
+	&Badge {
+		position: absolute;
+		top: 16px;
+		left: 16px;
+	}
+
+	&Controls {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		opacity: 0;
+		visibility: hidden;
+		transition: all .2s ease;
+
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	&Btn,
+	&Cart {
+		width: 40px;
+		height: 40px;
+	}
+
+	&Btn {
+		background: $white;
+		border: 1px solid $gray-light;
+
+		&:hover {
+			color: $white;
+			background: $primary;
+			border-color: $primary;
+		}
+
+		&.active {
+			color: $primary;
+			background: $white;
+		}
+	}
+
+	&Content {
+		padding: 12px;
+		padding-right: 16px;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&Name {
+		color: $gray-7;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+	}
+
+	&Price {
+		color: $gray-7;
+		font-size: $font-md;
+		line-height: $line-md;
+		font-weight: 500;
+
+		span {
+			margin-left: 2px;
+		}
+	}
+
+	&Rating {
+		display: flex;
+		margin-top: 4px;
+	}
+
+	&GrayIcon {
+		width: 40px;
+		height: 40px;
+		
+		svg {
+			width: 15px;
+    		height: 15px;
+			display: block;
+		}
+	}
+}
+
+.star {
+	width: 12px;
+	height: 12px;
+}

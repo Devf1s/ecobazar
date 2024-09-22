@@ -1,0 +1,116 @@
+@import '@/styles/_variables';
+
+.banners {
+	padding-bottom: 60px;
+}
+
+.container {
+	display: flex;
+	gap: 24px;
+
+	&>* {
+		flex: 1 0 30%;
+	}
+}
+
+.banner {
+	height: 536px;
+	padding: 35px;
+	border-radius: 8px;
+	text-align: center;
+
+	&Dark {
+
+		p,
+		h3 {
+			color: $gray-9;
+		}
+	}
+
+	&Label {
+		font-size: 14px;
+		font-weight: 500;
+		text-transform: uppercase;
+		color: $white;
+
+		margin-bottom: 16px;
+	}
+
+	&Title {
+		color: $white;
+		font-size: $font-h3;
+		line-height: $line-h3;
+		font-weight: 600;
+
+		margin-bottom: 13px;
+	}
+
+	&Text {
+		color: $white;
+		font-size: $font-lg;
+		line-height: $line-lg;
+		font-weight: 400;
+
+		margin-bottom: 24px;
+	}
+
+	&Price {
+		color: $warning;
+		font-size: $font-xl;
+		line-height: $line-xl;
+		font-weight: 600;
+
+		margin-left: 8px;
+	}
+
+	&Discount {
+		color: #fcc900;
+		background: $gray-9;
+		border-radius: 5px;
+
+		margin-left: 12px;
+		padding: 6px 12px;
+
+		font-weight: 600;
+		text-transform: uppercase;
+	}
+}
+
+.timer {
+	margin-bottom: 24px;
+
+	&Colon {
+		width: 6px;
+		height: 36px;
+		margin: 0 8px;
+		gap: 7px;
+
+		span {
+			width: 5px;
+			height: 5px;
+			background: rgba(255, 255, 255, 0.6);
+		}
+	}
+
+	&Unit {
+		width: 56px;
+	}
+
+	&Value {
+		margin-bottom: 4px;
+
+		color: $white;
+		font-size: $font-xxl;
+		line-height: $line-xxl;
+		font-weight: 400;
+	}
+
+	&Label {
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 1;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.8);
+	}
+}
