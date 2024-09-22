@@ -1,0 +1,186 @@
+@import '../Product.module.scss';
+
+.product {
+	background: $white;
+	border: 1px solid $gray-1;
+	margin: -1px -1px 0 0;
+
+	&Img {
+		height: 446px;
+		position: relative;
+
+		img {
+			width: 100%;
+			display: block;
+			position: absolute;
+			inset: 0;
+			user-select: none;
+		}
+	}
+
+	&Badges {
+		display: flex;
+		gap: 8px;
+
+		position: absolute;
+		top: 24px;
+		left: 24px;
+		z-index: 10;
+	}
+
+	&Controls {
+		width: 100%;
+		position: absolute;
+		left: 50%;
+		bottom: 24px;
+		z-index: 10;
+		transform: translateX(-50%);
+		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+	}	
+
+	&Btn {
+		width: 100%;
+		height: 46px;
+		max-width: 371px;
+		gap: 12px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		color: $white;
+		background: $primary;
+		border-radius: 43px;
+
+		font-size: $font-sm;
+		line-height: $line-sm-600;
+		font-weight: 600;
+
+		transition: all .2s ease-out;
+
+		&:hover {
+			background: $hard-primary;
+		}
+
+		&:active {
+			color: rgba(255, 255, 255, 0.8);
+		}
+
+		svg {
+			width: 15px;
+			height: 15px;
+			display: block;
+		}
+	}
+
+	&Content {
+		padding: 24px;
+		padding-top: 6px;
+
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		text-align: center;
+	}
+
+	&Name {
+		color: $hard-primary;
+		font-size: $font-lg;
+		line-height: $line-lg;
+		font-weight: 400;
+	}
+
+	&Price {
+		color: $gray-9;
+		font-size: $font-xxl;
+		line-height: $line-xxl;
+		font-weight: 500;
+
+		margin: 8px 0;
+
+		span {
+			font-size: 24px;
+			line-height: 36px;
+			margin-left: 4px;
+		}
+	}
+
+	&Rating {
+		display: flex;
+		align-items: flex-end;
+		gap: 2px;
+
+		p {
+			color: $gray-5;
+			font-size: $font-tiny;
+			line-height: $line-tiny;
+			font-weight: 400;
+		}
+	}
+}
+
+.icon {
+	width: 46px;
+	height: 46px;
+}
+
+.star {
+	width: 18px;
+	height: 18px;
+
+	img {
+		width: 100%;
+		display: block;
+	}
+}
+
+.timer {
+	&Wrapper {
+		padding-top: 18px;
+	}
+
+	&Text {
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 18px;
+		color: $gray-4;
+
+		margin-bottom: 6px;
+	}
+
+	&Colon {
+		width: 5px;	
+		height: 27px;
+		gap: 6px;
+	
+		span {
+			width: 3px;
+			height: 3px;
+			background: $gray-5;
+		}
+	}
+
+	&Unit {
+		width: 60px;
+	}
+
+	&Value {
+		color: $gray-9;
+		font-size: $font-lg;
+		line-height: $line-lg;
+		font-weight: 500;
+	}
+
+	&Label {
+		font-size: 10px;
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		color: $gray-4;
+	}
+}

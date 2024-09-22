@@ -1,15 +1,16 @@
 import { FC, useEffect, useState } from 'react';
+import classNames from 'classnames';
 import styles from './Timer.module.scss';
 
 interface TimerProps {
 	targetDate: Date;
+	customStyles?: { [key: string]: string };
 }
 
-const Timer: FC<TimerProps> = ({ targetDate }) => {
+const Timer: FC<TimerProps> = ({ targetDate, customStyles }) => {
 	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
 	function calculateTimeLeft() {
-		// const difference = targetDate.getTime() - +new Date();
 		const difference = targetDate.getTime() - new Date().getTime();
 
 		if (difference > 0) {
@@ -45,22 +46,26 @@ const Timer: FC<TimerProps> = ({ targetDate }) => {
 	];
 
 	return (
-		<div className={styles.timer}>
-			{timeUnits.map((unit, index) =>
+		<div className={classNames(styles.timer, customStyles?.timer)}>
+			{timeUnits.map((unit, index) => 
 				<div
 					key={unit.label}
-					className={styles.container}
+					className={classNames(styles.timerInner, customStyles?.timerInner)}
 				>
-					<div className={styles.timerUnit}>
-						<div className={styles.timerValue}>{unit.value}</div>
-						<p className={styles.timerLabel}>{unit.label}</p>
+					<div className={classNames(styles.timerUnit, customStyles?.timerUnit)}>
+						<span className={classNames(styles.timerValue, customStyles?.timerValue)}>
+							{unit.value}
+						</span>
+						<p className={classNames(styles.timerLabel, customStyles?.timerLabel)}>
+							{unit.label}
+						</p>
 					</div>
-					{index < timeUnits.length - 1 && 
-						<div className={styles.colon}>
+					{index < timeUnits.length - 1 && (
+						<div className={classNames(styles.timerColon, customStyles?.timerColon)}>
 							<span></span>
 							<span></span>
 						</div>
-					}
+					)}
 				</div>
 			)}
 		</div>

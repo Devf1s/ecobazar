@@ -13,6 +13,7 @@ import { ReactComponent as Facebook } from '@images/icons/social/facebook.svg';
 import { ReactComponent as Twitter } from '@images/icons/social/twitter.svg';
 import { ReactComponent as Pinterest } from '@images/icons/social/pinterest.svg';
 import { ReactComponent as Instagram } from '@images/icons/social/instagram.svg';
+import { ReactComponent as SlideArrow } from '@images/controls/slide-arrow.svg';
 
 export {
 	GreenArrow,
@@ -29,5 +30,6 @@ export {
 	Facebook,
 	Twitter,
 	Pinterest,
-	Instagram
+	Instagram,
+	SlideArrow
 }

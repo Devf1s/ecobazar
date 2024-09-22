@@ -3,7 +3,11 @@
 }
 
 .star {
-	max-width: 100%;
-	display: inline-block;
-	user-select: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	img {
+		user-select: none;
+	}
 }

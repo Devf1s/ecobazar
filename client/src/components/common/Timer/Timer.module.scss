@@ -1,58 +1,30 @@
-@import '@/styles/_variables';
-
 .timer {
 	display: flex;
 	justify-content: center;
-	margin-bottom: 24px;
+
+	&Inner {
+		display: flex;
+		align-items: center;
+	}
 
 	&Unit {
-		width: 56px;
-
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		text-align: center;
 	}
 
+	&Colon {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	
+		span {
+			border-radius: 50%;
+		}
+	}
+
 	&Value {
 		display: block;
-		margin-bottom: 4px;
-
-		color: $white;
-		font-size: $font-xxl;
-		line-height: $line-xxl;
-		font-weight: 400;
-	}
-
-	&Label {
-		font-size: 12px;
-		font-weight: 400;
-		line-height: 1;
-		letter-spacing: 0.03em;
-		text-transform: uppercase;
-		color: rgba(255, 255, 255, 0.8);
-	}
-}
-
-.container {
-	display: flex;
-	align-items: center;
-}
-
-.colon {
-	width: 6px;
-	height: 36px;
-	margin: 0 8px;
-	gap: 7px;
-
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-
-	span {
-		width: 5px;
-		height: 5px;
-		border-radius: 50%;
-		background: rgba(255, 255, 255, 0.6);
 	}
 }

@@ -1,9 +1,6 @@
 @import '@/styles/_variables';
 
 .product {
-	border: 1px solid $gray-1;
-	margin: -1px -1px 0 0;
-
 	&:hover {
 		border-color: $hard-primary;
 		box-shadow: 0px 0px 12px rgba(32, 181, 38, 0.32);
@@ -17,54 +14,35 @@
 		}
 	}
 
-	&Img {
-		position: relative;
-		padding: 5px;
-
-		img {
-			max-width: 100%;
-			display: inline-block;
-		}
-	}
-
 	&Badge {
 		display: inline-flex;
 		align-items: center;
 
-		position: absolute;
-		top: 16px;
-		left: 16px;
-		
-		background: $danger;
-		border-radius: 4px;
 		padding: 3px 8px;
+		border-radius: 4px;
 
-		span {
+		&Red {
+			background: $danger;
+		}
+
+		&Blue {
+			background: $blue;
+		}
+		
+		p {
 			color: $white;
 			font-size: $font-sm;
 			line-height: $line-sm;
 			font-weight: 400;
 		}
+
+		span {
+			font-weight: 500;
+			margin-left: 4px;
+		}
 	}
 
-	&Controls {
-		position: absolute;
-		top: 16px;
-		right: 16px;
-		opacity: 0;
-		visibility: hidden;
-		transition: all .2s ease;
-
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-	}
-
-	&Btn,
-	&Cart {
-		width: 40px;
-		height: 40px;
-		background: $white;
+	&Icon {
 		border-radius: 50%;
 
 		display: flex;
@@ -78,70 +56,22 @@
 			color: $white;
 			background: $primary;
 		}
-	}
+	}	
 
-	&Btn {
-		border: 1px solid $gray-light;
-
-		&:hover {
-			color: $white;
-			background: $primary;
-			border-color: $primary;
-		}
-
-		&.active {
-			color: $primary;
-			background: $white;
-		}
-	}
-
-	&Bottom {
-		padding: 12px;
-		padding-right: 16px;
-
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	&Name {
-		color: $gray-7;
-		font-size: $font-sm;
-		line-height: $line-sm;
-		font-weight: 400;
-	}
-
-	&Price {
-		color: $gray-7;
-		font-size: $font-sm;
-		line-height: $line-sm;
-		font-weight: 500;
-
-		span {
-			color: $gray-4;
-			font-weight: 400;
-			text-decoration: line-through;
-			margin-left: 2px;
-		}
-	}
-
-	&Rating {
-		display: flex;
-		margin-top: 6px;
-	}
-
-	&Cart {
+	&GrayIcon {
 		background: $gray-light;
-		
-		svg {
-			width: 15px;
-    		height: 15px;
-			display: block;
-		}
 
 		&.active {
 			color: $white;
 			background: $hard-primary;
+		}
+	}
+
+	&Price {
+		span {
+			color: $gray-4;
+			font-weight: 400;
+			text-decoration: line-through;
 		}
 	}
 }

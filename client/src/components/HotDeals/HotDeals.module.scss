@@ -1,0 +1,25 @@
+@import '@/styles/_variables';
+
+.hotDeals {
+	padding: 60px 0;
+	background: $bg-gray;
+}
+
+.container {
+	display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.productList {
+	display: contents; 
+}
+
+.bigProduct {
+	grid-column: span 2; 
+    grid-row: span 2; 
+
+	& > * {
+		height: 100%;
+		margin: -1px 0 0 -1px;
+	}
+}

@@ -43,7 +43,10 @@ const BannerCards: FC = () => {
 								</p>
 							}
 							{banner.isTimer &&
-								<Timer targetDate={targetTimes.saleOfTheMonth} />
+								<Timer 
+									customStyles={styles}
+									targetDate={targetTimes.saleOfTheMonth} 
+								/>
 							}
 							<ShopButton
 								background='white'
