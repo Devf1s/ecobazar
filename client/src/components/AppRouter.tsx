@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Navigate, Routes, Route } from 'react-router-dom';
-import { RouteNames, guestRoutes, authRoutes } from '../consts/routes';
-import { useAppSelector } from '../hooks/redux';
+import { RouteNames, guestRoutes, authRoutes } from '@/consts/routes';
+import { useAppSelector } from '@/hooks/redux';
 
 const AppRouter: FC = () => {
 	const { isAuth } = useAppSelector(state => state.user);

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import styles from './Timer.module.scss';
 
@@ -8,9 +8,7 @@ interface TimerProps {
 }
 
 const Timer: FC<TimerProps> = ({ targetDate, customStyles }) => {
-	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
-	function calculateTimeLeft() {
+	const calculateTimeLeft = useCallback(() => {
 		const difference = targetDate.getTime() - new Date().getTime();
 
 		if (difference > 0) {
@@ -28,7 +26,9 @@ const Timer: FC<TimerProps> = ({ targetDate, customStyles }) => {
 				seconds: 0
 			}
 		}
-	}
+	}, [targetDate]);
+
+	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
 	useEffect(() => {
 		const timerId = setInterval(() => {
@@ -36,7 +36,7 @@ const Timer: FC<TimerProps> = ({ targetDate, customStyles }) => {
 		}, 1000);
 
 		return () => clearInterval(timerId);
-	}, [targetDate]);
+	}, [calculateTimeLeft]);
 
 	const timeUnits = [
 		{ label: 'days', value: String(timeLeft.days).padStart(2, '0') },

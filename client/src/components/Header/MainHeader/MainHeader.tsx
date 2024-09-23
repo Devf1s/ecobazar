@@ -1,7 +1,7 @@
 import { FC, ChangeEvent, KeyboardEvent, useState } from 'react';
 import Container from '@/components/common/Container';
 import Logo from '@/components/common/Logo/Logo';
-import { bag, heart, logo } from '@images/images';
+import { bag, heart } from '@images/images';
 import styles from './MainHeader.module.scss';
 
 const MainHeader: FC = () => {

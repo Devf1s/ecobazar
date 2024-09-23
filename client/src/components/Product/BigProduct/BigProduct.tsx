@@ -7,11 +7,11 @@ import { Eye, Wishlist, Bag } from '@images/components';
 import { BigProductItem } from '@/types/models/ProductItem';
 import styles from './BigProduct.module.scss';
 
-interface BigProduct {
+interface BigProductProps {
 	product: BigProductItem;
 }
 
-const BigProduct: FC<BigProduct> = ({ product }) => {
+const BigProduct: FC<BigProductProps> = ({ product }) => {
 	return (
 		<div className={styles.product}>
 			<div className={styles.productImg}>
