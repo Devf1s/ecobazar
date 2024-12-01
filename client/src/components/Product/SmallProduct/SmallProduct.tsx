@@ -1,49 +1,64 @@
 import { FC } from 'react';
-import { formatPrice, getPrice } from '@/utils/price';
+import classNames from 'classnames';
+import { calculateDiscount } from '@/utils/discount';
+import { QuickViewProps, ProductItem } from '@/types/models/ProductItem';
+import Price from '@/components/common/Price';
 import Stars from '@/components/common/Stars/Stars';
 import { Eye, Wishlist, Bag } from '@images/components';
-import { SmallProductItem } from '@/types/models/ProductItem';
 import styles from './SmallProduct.module.scss';
 
-interface SmallProductProps {
-	product: SmallProductItem;
+interface SmallProductProps extends QuickViewProps {
+	product: ProductItem;
+	customStyles?: { [key: string]: string }
 }
 
-const SmallProduct: FC<SmallProductProps> = ({ product }) => {
+const SmallProduct: FC<SmallProductProps> = ({ product, customStyles, onQuickView }) => {
 	return (
-		<div className={styles.product}>
-			<div className={styles.productImg}>
+		<div className={classNames(
+			styles.product, 
+			customStyles?.product
+		)}>
+			<div className={classNames(
+				styles.image, 
+				customStyles?.productImage
+			)}>
 				{product.isSale &&
-					<div className={`${styles.productBadge} ${styles.productBadgeRed}`}>
-						<p>Sale<span>50%</span></p>
+					<div className={classNames(styles.badge, styles.red)}>
+						<p>Sale<span>{calculateDiscount(product)}</span></p>
 					</div>
 				}
-				<div className={styles.productControls}>
-					<div className={`${styles.productIcon} ${styles.productBtn}`}>
+				<div className={styles.controls}>
+					<button className={classNames(styles.icon, styles.btn)}>
 						<Wishlist />
-					</div>
-					<div className={`${styles.productIcon} ${styles.productBtn}`}>
+					</button>
+					<button
+						onClick={() => onQuickView(product)}
+						className={classNames(styles.icon, styles.btn)}
+					>
 						<Eye />
-					</div>
+					</button>
 				</div>
 				<img src={product.image} alt={product.name} />
 			</div>
-			<div className={styles.productContent}>
-				<div className={styles.productInfo}>
-					<h4 className={styles.productName}>
+			<div className={styles.content}>
+				<div className={styles.info}>
+					<h4 className={styles.name}>
 						{product.name}
 					</h4>
-					<p className={styles.productPrice}>
-						{formatPrice({ price: getPrice(product) })}
-						{product.isSale && <span>{formatPrice({ price: product.price })}</span>}
-					</p>
-					<div className={styles.productRating}>
-						<Stars customStyles={styles} rating={product.rating} />
+					<Price
+						product={product}
+						className={styles.price}
+					/>
+					<div className={styles.rating}>
+						<Stars
+							customStyles={styles}
+							rating={product.rating}
+						/>
 					</div>
 				</div>
-				<div className={`${styles.productIcon} ${styles.productGrayIcon}`}>
+				<button className={`${styles.icon} ${styles.grayIcon}`}>
 					<Bag />
-				</div>
+				</button>
 			</div>
 		</div>
 	)

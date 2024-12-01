@@ -1,22 +1,17 @@
-export interface SmallProductItem {
+export interface ProductItem {
 	id: number;
 	name: string;               
 	price: number;  
 	salePrice?: number;            
 	image: string;           
-	rating: number;             
-	isSale: boolean;           
+	rating: number;   
+	reviews: number;          
+	isSale: boolean;
+	category: string;           
 }
 
-export interface BigProductItem {
-	id: number;
-	name: string;               
-	price: number;  
-	salePrice: number;            
-	image: string;           
-	rating: number;  
-	feedbackCount: number;         
-	isLarge: true; 
+export interface QuickViewProps {
+	onQuickView: OnQuickView;
 }
 
-export type ProductItem = SmallProductItem | BigProductItem;
+export type OnQuickView = (product: ProductItem) => void;

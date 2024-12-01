@@ -8,70 +8,70 @@
 
 		transition: all .2s ease-out;
 
-		.productControls {
+		.controls {
 			opacity: 1;
 			visibility: visible;
 		}
 	}
+}
 
-	&Badge {
-		display: inline-flex;
-		align-items: center;
+.badge {
+	display: inline-flex;
+	align-items: center;
 
-		padding: 3px 8px;
-		border-radius: 4px;
+	padding: 3px 8px;
+	border-radius: 4px;
 
-		&Red {
-			background: $danger;
-		}
-
-		&Blue {
-			background: $blue;
-		}
-		
-		p {
-			color: $white;
-			font-size: $font-sm;
-			line-height: $line-sm;
-			font-weight: 400;
-		}
-
-		span {
-			font-weight: 500;
-			margin-left: 4px;
-		}
+	&.red {
+		background: $danger;
 	}
 
-	&Icon {
-		border-radius: 50%;
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		cursor: pointer;
-
-		transition: all .15s ease-out;
-
-		&:hover {
-			color: $white;
-			background: $primary;
-		}
-	}	
-
-	&GrayIcon {
-		background: $gray-light;
-
-		&.active {
-			color: $white;
-			background: $hard-primary;
-		}
+	&.blue {
+		background: $blue;
 	}
 
-	&Price {
-		span {
-			color: $gray-4;
-			font-weight: 400;
-			text-decoration: line-through;
-		}
+	p {
+		color: $white;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+	}
+
+	span {
+		font-weight: 500;
+		margin-left: 4px;
+	}
+}
+
+.icon {
+	border-radius: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+
+	transition: all .15s ease-out;
+
+	&:hover {
+		color: $white;
+		background: $primary;
+	}
+}
+
+.grayIcon {
+	background: $gray-light;
+
+	&.active {
+		color: $white;
+		background: $hard-primary;
+	}
+}
+
+.price {
+	span {
+		color: $gray-4;
+		font-weight: 400;
+		text-decoration: line-through;
 	}
 }

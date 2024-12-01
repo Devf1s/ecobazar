@@ -4,99 +4,101 @@
 	background: $white;
 	border: 1px solid $gray-1;
 	margin: -1px -1px 0 0;
+}
 
-	&Img {
-		position: relative;
-		padding: 5px;
+.image {
+	position: relative;
+	padding: 5px;
 
-		img {
-			max-width: 100%;
-			display: inline-block;
-		}
+	img {
+		width: 100%;
+		height: 230px;
+		display: block;
+		object-fit: contain;
+	}
+}
+
+.badge {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+}
+
+.controls {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .2s ease;
+
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.btn,
+.cart {
+	width: 40px;
+	height: 40px;
+}
+
+.btn {
+	background: $white;
+	border: 1px solid $gray-light;
+
+	&:hover {
+		color: $white;
+		background: $primary;
+		border-color: $primary;
 	}
 
-	&Badge {
-		position: absolute;
-		top: 16px;
-		left: 16px;
-	}
-
-	&Controls {
-		position: absolute;
-		top: 16px;
-		right: 16px;
-		opacity: 0;
-		visibility: hidden;
-		transition: all .2s ease;
-
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-	}
-
-	&Btn,
-	&Cart {
-		width: 40px;
-		height: 40px;
-	}
-
-	&Btn {
+	&.active {
+		color: $primary;
 		background: $white;
-		border: 1px solid $gray-light;
-
-		&:hover {
-			color: $white;
-			background: $primary;
-			border-color: $primary;
-		}
-
-		&.active {
-			color: $primary;
-			background: $white;
-		}
 	}
+}
 
-	&Content {
-		padding: 12px;
-		padding-right: 16px;
+.content {
+	padding: 12px;
+	padding-right: 16px;
 
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.name {
+	color: $gray-7;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 400;
+}
+
+.price {
+	color: $gray-7;
+	font-size: $font-md;
+	line-height: $line-md;
+	font-weight: 500;
+
+	span {
+		margin-left: 2px;
 	}
+}
 
-	&Name {
-		color: $gray-7;
-		font-size: $font-sm;
-		line-height: $line-sm;
-		font-weight: 400;
-	}
+.rating {
+	display: flex;
+	margin-top: 3px;
+}
 
-	&Price {
-		color: $gray-7;
-		font-size: $font-md;
-		line-height: $line-md;
-		font-weight: 500;
+.grayIcon {
+	width: 40px;
+	height: 40px;
 
-		span {
-			margin-left: 2px;
-		}
-	}
-
-	&Rating {
-		display: flex;
-		margin-top: 4px;
-	}
-
-	&GrayIcon {
-		width: 40px;
-		height: 40px;
-		
-		svg {
-			width: 15px;
-    		height: 15px;
-			display: block;
-		}
+	svg {
+		width: 15px;
+		height: 15px;
+		display: block;
 	}
 }
 

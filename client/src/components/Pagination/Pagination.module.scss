@@ -1,0 +1,67 @@
+@import '@/styles/_variables';
+
+.pagination {
+	text-align: center;
+	margin: 40px auto 0;
+}
+
+.inner {
+	display: inline-flex;
+	align-items: center;
+}
+
+.items {
+	display: flex;
+	margin: 0 12px;
+}
+
+.btn {
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: $white;
+	font-size: $font-md;
+	line-height: $line-md;
+	font-weight: 500;
+	
+	transition: all .2 ease;
+
+	&:hover,
+	&.active {
+		background: $primary;
+
+		svg {
+			color: $white;
+		}
+	}
+}
+
+.prev,
+.next {
+	background: $gray-light;
+	border: 1px solid transparent;
+
+	svg {
+		color: $gray-3;
+	}
+
+	&.active {
+		background: transparent;
+		border-color: $gray-1;
+
+		svg {
+			color: $gray-9;
+		}
+	}
+}
+
+.next {
+	svg {
+		transform: rotate(180deg);
+	}
+}

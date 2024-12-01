@@ -50,7 +50,7 @@ const Timer: FC<TimerProps> = ({ targetDate, customStyles }) => {
 			{timeUnits.map((unit, index) => 
 				<div
 					key={unit.label}
-					className={classNames(styles.timerInner, customStyles?.timerInner)}
+					className={classNames(styles.timerItem, customStyles?.timerItem)}
 				>
 					<div className={classNames(styles.timerUnit, customStyles?.timerUnit)}>
 						<span className={classNames(styles.timerValue, customStyles?.timerValue)}>

@@ -1,0 +1,57 @@
+@import '@/styles/_variables';
+
+.checkbox {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 6px;
+
+	input {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+
+		&:checked + .customCheckbox {
+			background: $primary;
+		
+
+			img {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+}
+
+.customCheckbox {
+	width: 20px;
+	height: 20px;
+	border-radius: 4px;
+	border: 1px solid $gray-2;
+	margin-bottom: 1px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: border .2s ease, background .1s ease;
+
+	&:hover {
+		border-color: $primary;
+	}
+
+	img {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.label {
+	color: $gray-6;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 400;
+
+	cursor: pointer;
+	user-select: none;
+}

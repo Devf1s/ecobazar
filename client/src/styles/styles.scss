@@ -12,6 +12,13 @@ textarea {
 	font-family: 'Poppins', sans-serif;
 }
 
+input {
+	&[type="file"],
+	&[type="checkbox"] {
+		display: none;
+	}
+}
+
 img {
     user-select: none;
 }

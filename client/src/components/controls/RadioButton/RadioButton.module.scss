@@ -1,0 +1,55 @@
+@import '@/styles/_variables';
+
+.radioButton {
+	cursor: pointer;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+
+	input:checked + .customRadio {
+		border-color: $primary;
+
+		&:after {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.customRadio {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 1.5px solid $gray-2;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: relative;
+	transition: all .2s;
+
+	&:after {
+		content: '';
+		width: 12px;
+		height: 12px;
+		border-radius: 50%;
+		background: $primary;
+
+		opacity: 0;
+		visibility: hidden;
+		will-change: opacity;
+		transition: inherit;
+	}
+
+	&:hover {
+		border-color: $primary;
+	}
+}
+
+.label {
+	color: $gray-9;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 400;
+}

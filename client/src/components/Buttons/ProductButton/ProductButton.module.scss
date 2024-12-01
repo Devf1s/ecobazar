@@ -1,0 +1,57 @@
+@import '@/styles/_variables';
+
+.button {
+	width: 100%;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: $white;
+	background: $primary;
+	border-radius: 43px;
+
+	transition: all .2s ease-out;
+
+	span {
+		font-weight: 600;
+	}
+
+	svg {
+		width: 15px;
+		height: 15px;
+		display: block;
+	}
+
+	&:hover {
+		background: $button-hover;
+	}
+
+	&:active {
+		span {
+			color: rgba(255, 255, 255, 0.8);
+		}
+	}
+
+	&.small {
+		max-width: 371px;
+		padding: 14px 0;
+		gap: 12px;
+
+		span {
+			font-size: $font-sm;
+			line-height: $line-sm-600;
+		}
+	}
+
+	&.medium {
+		max-width: 368px;
+		padding: 16px 0;
+		gap: 16px;
+
+		span {
+			font-size: $font-md;
+			line-height: $line-md-600;
+		}
+	}
+}

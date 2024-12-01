@@ -1,5 +1,10 @@
 /** A quick and convenient way to import frequently used images **/
 import logo from './logo.svg';
+
+import dropdown from './controls/dropdown-arrow.svg';
+import arrowDown from './controls/arrow-down.svg';
+import greenArrow from './controls/green-arrow.svg';
+
 import pin from './icons/pin.svg';
 import search from './icons/search.svg';
 import heart from './icons/heart.svg';
@@ -13,13 +18,14 @@ import grayStar from './icons/star-gray.svg';
 import tag from './icons/tag.svg';
 import chat from './icons/chat.svg';
 import user from './icons/user.svg';
-import dropdown from './controls/dropdown-arrow.svg';
-import arrowDown from './controls/arrow-down.svg';
-import greenArrow from './controls/green-arrow.svg';
-import notFound from './error/not-found.png';
+import check from './icons/checkbox/check.svg';
+import separator from './icons/separator.svg';
 
 export {
 	logo,
+	dropdown,
+	arrowDown,
+	greenArrow,
 	pin,
 	search,
 	heart,
@@ -33,8 +39,6 @@ export {
 	tag,
 	chat, 
 	user,
-	dropdown,
-	arrowDown,
-	greenArrow,
-	notFound
+	check,
+	separator
 }
