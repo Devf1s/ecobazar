@@ -1,5 +1,6 @@
 import Home from '@/pages/home/Home';
 import Login from '@/pages/login/Login';
+import Shop from '@/pages/shop/Shop';
 import Error from '@/pages/error/Error';
 
 // const Page = lazy(() => import(''));
@@ -31,6 +32,10 @@ export const authRoutes: Route[] = [
 	{
 		path: RouteNames.HOME_ROUTE,
 		element: Home
+	},
+	{
+		path: RouteNames.SHOP_ROUTE,
+		element: Shop
 	},
 	{
 		path: RouteNames.ERROR_ROUTE,

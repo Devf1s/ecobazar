@@ -1,0 +1,33 @@
+@import '@/styles/_variables';
+
+.list {
+	margin-top: 10px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.option {
+	display: flex;
+	gap: 8px;
+	padding: 1.5px 0;
+}
+
+.label {
+	color: $gray-9;
+	
+	display: flex;	
+	align-items: center;
+}
+
+.star {
+	img {
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.count {
+	padding: 0 4px;
+}

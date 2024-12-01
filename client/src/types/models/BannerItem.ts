@@ -17,7 +17,7 @@ interface SideBannerItem {
 	discount?: string;
 }
 
-interface DiscountBannerItem {
+interface SummerBannerItem {
 	id: number;
 	bgImage: string;
 	label: string;
@@ -25,4 +25,24 @@ interface DiscountBannerItem {
 	text: string;
 }
 
-export type { MainBannerItem, SideBannerItem, DiscountBannerItem };
+interface SummerBannerItem {
+	id: number;
+	bgImage: string;
+	label: string;
+	discount: string; 
+	text: string;
+}
+
+interface MonthlyBannerItem {
+	id: number;
+	bgImage: string;
+	label: string;
+	discount: string; 
+}
+
+export type { 
+	MainBannerItem, 
+	SideBannerItem, 
+	SummerBannerItem, 
+	MonthlyBannerItem
+};

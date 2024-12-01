@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { notFound } from '../../assets/images/images';
-import { RouteNames } from '../../consts/routes';
+import { RouteNames } from '@/consts/routes';
+import notFound from '@images/error/not-found.png';
 import styles from './Error.module.scss';
 
 const Error: FC = () => {

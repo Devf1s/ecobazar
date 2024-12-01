@@ -1,10 +1,9 @@
 .timer {
+	
 	display: flex;
-	justify-content: center;
 
-	&Inner {
+	&Item {
 		display: flex;
-		align-items: center;
 	}
 
 	&Unit {
@@ -18,8 +17,16 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-	
+
+		width: 6px;
+		height: 36px;
+		margin: 0 8px;
+		padding-top: 13px;
+		gap: 7px;
+
 		span {
+			width: 3.5px;
+			height: 3.5px;
 			border-radius: 50%;
 		}
 	}

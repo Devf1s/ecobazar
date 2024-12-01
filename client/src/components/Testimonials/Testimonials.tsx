@@ -1,64 +1,50 @@
 import { FC } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import { testimonials } from '@/data/testimonials';
-import { generateImageAlt } from '@/utils/imageAlt';
 import Container from '@/components/common/Container';
-import Stars from '@/components/common/Stars/Stars';
-import quotes from '@images/testimonials/quotes.svg';
+import TestimonialSlide from './TestimonialSlide/TestimonialSlide';
+import { SlideArrow } from '@images/components';
+import classNames from 'classnames';
 import styles from './Testimonials.module.scss';
-import { SlideArrow } from '@/assets/images/components';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 const Testimonials: FC = () => {
+	const testimonialSlides = [...testimonials, ...testimonials, ...testimonials];
+
 	return (
 		<div className={styles.testimonials}>
 			<Container>
 				<div className={styles.header}>
 					<h2>Client Testimonials</h2>
 					<div className={styles.slideArrows}>
-						<div className={styles.slideArrow}>
+						<div className={classNames('swiper-button-prev', styles.prevArrow)}>
 							<SlideArrow />
 						</div>
-						<div className={`${styles.slideArrow} ${styles.active}`}>
+						<div className={classNames('swiper-button-next', styles.nextArrow)}>
 							<SlideArrow />
 						</div>
 					</div>
 				</div>
-				<div className={styles.items}>
-					{testimonials.map(item =>
-						<div
-							key={item.id}
-							className={styles.item}
-						>
-							<img
-								src={quotes}
-								alt='Quotes'
-								className={styles.quotes}
-							/>
-							<p className={styles.text}>
-								{item.text}
-							</p>
-							<div className={styles.bottom}>
-								<div className={styles.info}>
-									<img
-										src={item.avatar}
-										alt={generateImageAlt(item.avatar)}
-										className={styles.avatar}
-									/>
-									<div className={styles.userDetails}>
-										<h3 className={styles.name}>
-											{item.name}
-										</h3>
-										<p className={styles.role}>
-											{item.role}
-										</p>
-									</div>
-								</div>
-								<div className={styles.rating}>
-									<Stars customStyles={styles} rating={item.rating} />
-								</div>
-							</div>
-						</div>
+				<Swiper
+					slidesPerView={3}
+					spaceBetween={24}
+					loop={true}
+					navigation={{
+						nextEl: '.swiper-button-next',
+						prevEl: '.swiper-button-prev'
+					}}
+					modules={[Navigation]}
+					className={styles.slider}
+				>
+					{testimonialSlides.map((item, index) =>
+						<SwiperSlide key={`${item.id} ${index}`}>
+							<TestimonialSlide item={item} />
+						</SwiperSlide>
 					)}
-				</div>
+				</Swiper>
 			</Container>
 		</div>
 	)

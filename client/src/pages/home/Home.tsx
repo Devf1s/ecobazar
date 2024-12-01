@@ -1,35 +1,53 @@
-import { FC } from 'react';
-import Hero from '@/components/Hero/Hero';
-import Categories from '@/components/Categories/Categories';
-import PopularProducts from '@/components/PopularProducts/PopularProducts';
-import BannerCards from '@/components/BannerCards/BannerCards';
-import HotDeals from '@/components/HotDeals/HotDeals';
-import DiscountBanner from '@/components/DiscountBanner/DiscountBanner';
-import FeaturedProducts from '@/components/FeaturedProducts/FeaturedProducts';
-import News from '@/components/News/News';
-import Testimonials from '@/components/Testimonials/Testimonials';
-import Logos from '@/components/Logos/Logos';
-import Posts from '@/components/Posts/Posts';
-import Newsletter from '@/components/Newsletter/Newsletter';
-import Footer from '@/components/Footer/Footer';
+import { FC, useState } from 'react';
+import useModal from '@/hooks/useModal';
+import { ProductItem } from '@/types/models/ProductItem';
+import {
+	Hero,
+	CategoryCards,
+	PopularProducts,
+	BannerCards,
+	HotDeals,
+	SummerBanner,
+	FeaturedProducts,
+	News,
+	Testimonials,
+	Logos,
+	Posts,
+	Newsletter,
+	QuickViewModal,
+	NewsletterModal
+} from '@/components';
 import styles from './Home.module.scss';
 
 const Home: FC = () => {
+	const [selectedProduct, setSelectedProduct] = useState<ProductItem | undefined>(undefined);
+	const { isOpen, closeModal, openModal } = useModal();
+
+	const handleQuickView = (product: ProductItem) => {
+		setSelectedProduct(product);
+		openModal();
+	};
+
 	return (
 		<main className={styles.home}>
 			<Hero />
-			<Categories />
-			<PopularProducts />
+			<CategoryCards />
+			<PopularProducts onQuickView={handleQuickView} />
 			<BannerCards />
-			<HotDeals />
-			<DiscountBanner />
-			<FeaturedProducts />
+			<HotDeals onQuickView={handleQuickView} />
+			<SummerBanner />
+			<FeaturedProducts onQuickView={handleQuickView} />
 			<News />
 			<Testimonials />
 			<Logos />
 			<Posts />
 			<Newsletter />
-			<Footer />
+			<QuickViewModal
+				isOpen={isOpen}
+				closeModal={closeModal}
+				product={selectedProduct}
+			/>
+			<NewsletterModal />
 		</main>
 	)
 }
