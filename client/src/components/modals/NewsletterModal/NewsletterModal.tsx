@@ -22,7 +22,7 @@ const NewsletterModal: FC = () => {
 
 			return () => clearTimeout(timer);
 		}
-	}, []);
+	});
 
 	return (
 		<Modal
