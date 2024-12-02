@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { ratingOptions } from '@/data/filter/rating';
 import Checkbox from '@/components/controls/Checkbox/Checkbox';
 import styles from './RatingFilter.module.scss';

@@ -5,11 +5,11 @@ import Stars from '@/components/common/Stars/Stars';
 import Price from '@/components/common/Price';
 import styles from './SaleProduct.module.scss';
 
-interface SaleProduct {
+interface SaleProductProps {
 	product: ProductItem;
 }
 
-const SaleProduct: FC<SaleProduct> = ({ product }) => {
+const SaleProduct: FC<SaleProductProps> = ({ product }) => {
 	return (
 		<div className={styles.saleProducts}>
 			<div className={styles.saleProduct}>
