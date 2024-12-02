@@ -1,0 +1,134 @@
+@import '@/styles/_variables';
+
+.filter {
+	flex: 1 0 312px;
+
+	&Button {
+		color: $white;
+		background: $primary;
+		border-radius: 43px;
+		padding: 14px 32px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 12px;
+
+		font-size: $font-sm;
+		line-height: $line-sm-600;
+		font-weight: 600;
+	}
+
+	&Items {
+		margin-top: 4px;
+	}
+
+	&Item {
+		padding-bottom: 24.5px;
+		border-bottom: 1px solid $gray-1;
+
+		&:first-child,
+		&:last-child {
+			padding-bottom: 26.5px;
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
+.title {
+	color: $gray-9;
+	font-size: $font-xl;
+	line-height: $line-xl;
+	font-weight: 500;
+}
+
+.toggle {
+	&Header {
+		width: 100%;
+		padding: 20px 0;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		h4 {
+			color: $gray-9;
+			font-size: $font-xl;
+			line-height: $line-xl;
+			font-weight: 500;
+		}
+	}
+
+	&Arrow {
+		user-select: none;
+
+		&.active {
+			img {
+				transform: rotate(180deg);
+			}
+		}
+
+		img {
+			width: 14px;
+			height: 8px;
+			transition: all .2s ease;
+		}
+	}
+}
+
+.discount {
+	&Banner {
+		width: 100%;
+		height: 295px;
+		padding: 20px 0;
+		border-radius: 10px;
+		text-align: center;
+	}
+
+	&Label {
+		color: $gray-9;
+		font-size: $font-xxl;
+		line-height: $line-xxl;
+		font-weight: 400;
+
+		span {
+			color: $warning;
+			font-size: $font-h5;
+			line-height: $line-h5;
+			font-weight: 600;
+		}
+
+		margin-bottom: 2px;
+	}
+
+	&Text {
+		color: $gray-7;
+		font-size: $font-md;
+		line-height: $line-md;
+		font-weight: 400;
+
+		margin-bottom: 12px;
+	}
+}
+
+.saleProducts {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&Wrapper {
+		margin-top: 20px;
+	}
+
+	&Title {
+		color: $gray-9;
+		font-size: $font-xl;
+		line-height: $line-xl;
+		font-weight: 500;
+
+		margin-bottom: 12px;
+	}
+}

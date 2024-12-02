@@ -1,14 +1,31 @@
 import { FC } from 'react';
 import { products } from '@/data/products';
-import { isBigProduct } from '@/utils/product';
-import Container from '@/components/common/Container';
+import { ProductItem, QuickViewProps } from '@/types/models/ProductItem';
 import Title from '@/components/common/Title/Title';
-import Product from '@/components/Product/Product';
+import Container from '@/components/common/Container';
+import BigProduct from '@/components/Product/BigProduct/BigProduct';
+import SmallProduct from '@/components/Product/SmallProduct/SmallProduct';
 import styles from './HotDeals.module.scss';
 
-const HotDeals: FC = () => {
-	const largeProduct = products.find(product => isBigProduct(product));
-	const smallProducts = products.filter(product => !isBigProduct(product)).slice(2, 13);
+interface ReduceResult {
+	bigProduct: ProductItem | null;
+	remainingProducts: ProductItem[];
+}
+
+const HotDeals: FC<QuickViewProps> = ({ onQuickView }) => {
+	const { bigProduct, remainingProducts } = products.reduce<ReduceResult>(
+		(acc, product) => {
+			if (!acc.bigProduct && product.isSale) {
+				acc.bigProduct = product;
+			} else {
+				acc.remainingProducts.push(product);
+			}
+			return acc;
+		},
+		{ bigProduct: null, remainingProducts: [] }
+	);
+
+	const smallProducts = remainingProducts.slice(0, 10);
 
 	return (
 		<div className={styles.hotDeals}>
@@ -16,11 +33,21 @@ const HotDeals: FC = () => {
 				<Title text='Hot Deals' />
 				<div className={styles.container}>
 					<div className={styles.bigProduct}>
-						{largeProduct && <Product key={largeProduct.id} product={largeProduct} />}
+						{bigProduct && 
+							<BigProduct 
+								key={bigProduct.id} 
+								product={bigProduct} 
+								onQuickView={onQuickView}
+							/>
+						}
 					</div>
 					<div className={styles.productList}>
 						{smallProducts.map(product =>
-							<Product key={product.id} product={product} />
+							<SmallProduct 
+								key={product.id} 
+								product={product} 
+								onQuickView={onQuickView}
+							/>
 						)}
 					</div>
 				</div>

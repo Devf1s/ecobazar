@@ -9,7 +9,6 @@ STRUCTURE:
 -- Homepage:
 	- [ ] Testimonials ( V5 ) - background leaves, possible implementation
 	- [ ] Newsletter Popup - choose the method of appearance
-	- [ ] Best Deals cards - create timer for sale ending 
 
 
 --- TRANSITIONS:
@@ -26,12 +25,14 @@ GENERAL TASKS:
 - [ ] types for userSlice
 - [ ] create paths for bg url ( MainHeader.module.scss )
 - [ ] Prettier
-- [ ] Lazy loading for routes.js
-- [ ] Links and paths ( update routeNames )
+- [ ] Lazy loading for components ( consts/routes.ts )
+- [ ] Links and paths - update routeNames ( consts/routes.ts )
 - [ ] Create slider for Testimonials section
 - [ ] Problem with border in POPULAR PRODUCTS
 - [ ] Create ReadMe button and change in NEWS 
 - [ ] Add script ( class active ) for items that should have a hover effect from the beginning
+- [ ] Link images of a specific product to a modal window ( QuickViewModal.tsx )
+- [ ] Add script for checkbox ( NewsletterModal.tsx )
 
 
 COPY PASTE:

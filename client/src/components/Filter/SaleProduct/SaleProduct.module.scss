@@ -1,0 +1,62 @@
+@import '@/styles/_variables';
+
+.saleProduct {
+	width: 100%;
+	background: $white;
+	border: 1px solid $gray-1;
+	border-radius: 6px;
+
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 12px;
+
+	transition: all .15s ease-out;
+
+	&:hover {
+		border-color: $primary;
+		box-shadow: 0px 0px 12px rgba(32, 181, 38, 0.32);
+
+		.saleProductName {
+			color: $hard-primary;
+		}
+	}
+
+	&Image {
+		padding: 5px;
+
+		img {
+			width: 102px;
+			height: 102px;
+			display: block;
+			object-fit: contain;
+		}
+	}
+
+	&Content {
+		padding: 0 12px;
+	}
+
+	&Name {
+		color: $gray-7;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+
+		transform: inherit;
+	}
+
+	&Price {
+		font-size: $font-md;
+		line-height: $line-md;
+		font-weight: 500;
+
+		span {
+			color: $gray-4;
+			font-weight: 400;
+			text-decoration: line-through;
+
+			padding-left: 2px;
+		}
+	}
+}

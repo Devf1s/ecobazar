@@ -1,4 +1,4 @@
-import { SmallProductItem } from '@/types/models/ProductItem';
+import { ProductItem } from '@/types/models/ProductItem';
 
 // Currencies
 export enum Currencies {
@@ -12,7 +12,7 @@ interface FormatPriceProps {
 }
 
 // Get price
-export const getPrice = (product: SmallProductItem): number => {
+export const getPrice = (product: ProductItem): number => {
 	return product.isSale && product.salePrice ? product.salePrice : product.price;
 };
 

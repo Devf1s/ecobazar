@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import { products } from '@/data/products';
-import { isBigProduct } from '@/utils/product';
+import { QuickViewProps } from '@/types/models/ProductItem';
 import Container from '@/components/common/Container';
 import Title from '@/components/common/Title/Title';
-import Product from '@/components/Product/Product';
+import Product from '@/components/Product/SmallProduct/SmallProduct';
 import styles from './PopularProducts.module.scss';
 
-const PopularProducts: FC = () => {
-	const popularProducts = products.filter(product => !isBigProduct(product)).slice(0, 10);
-	
+const PopularProducts: FC<QuickViewProps> = ({ onQuickView }) => {
+	const popularProducts = products.slice(0, 10);
+
 	return (
 		<div className={styles.products}>
 			<Container>
@@ -18,6 +18,7 @@ const PopularProducts: FC = () => {
 						<Product
 							key={product.id}
 							product={product}
+							onQuickView={onQuickView}
 						/>
 					)}
 				</div>

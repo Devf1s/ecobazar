@@ -1,0 +1,55 @@
+@import '@/styles/_variables';
+
+.breadcrumb {
+	width: 100%;
+	padding: 24px 0;
+
+	display: flex;
+	align-items: center;
+
+	&List {
+		width: fit-content;
+		display: flex;
+		align-items: center;
+		gap: 32px;
+	}
+
+	&Item {
+		display: inline-block;
+		max-height: 24px;
+
+		color: $gray-4;
+		font-size: $font-md;
+		line-height: $line-md;
+		font-weight: 400;
+
+		position: relative;
+		transition: all .2s ease;
+		
+		a {
+			display: inline-flex;
+		}
+
+		svg {
+			flex: 1 0 24px;
+			color: $gray-5;
+			transition: all .2s;
+		}
+
+		&:after {
+			content: '';
+			// background: url();
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		&.active {
+			color: $primary;
+
+			svg {
+				color: $primary;
+			}
+		}
+	}
+}

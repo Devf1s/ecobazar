@@ -1,3 +1,4 @@
+import { CategoryNames } from '@/consts/categories';
 import { ProductItem } from '@/types/models/ProductItem';
 import freshApples from '@images/products/fresh_apples.jpg';
 import greenApple from '@images/products/green_apple.jpg';
@@ -22,8 +23,9 @@ export const products: ProductItem[] = [
 		salePrice: 12,
 		image: freshApples,
 		rating: 5,
-		feedbackCount: 524,
-		isLarge: true
+		reviews: 524,
+		isSale: true,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 2,
@@ -32,7 +34,9 @@ export const products: ProductItem[] = [
 		salePrice: 14.99,
 		image: greenApple,
 		rating: 5,
-		isSale: true
+		reviews: 10,
+		isSale: true,
+		category: CategoryNames.FreshFruit
 	},
 	{
 		id: 3,
@@ -40,7 +44,9 @@ export const products: ProductItem[] = [
 		price: 20,
 		image: malta,
 		rating: 4,
-		isSale: false
+		reviews: 4,
+		isSale: false,
+		category: CategoryNames.FreshFruit
 	},
 	{
 		id: 4,
@@ -48,7 +54,9 @@ export const products: ProductItem[] = [
 		price: 12,
 		image: cabbage,
 		rating: 4,
-		isSale: false
+		reviews: 12,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 5,
@@ -56,7 +64,9 @@ export const products: ProductItem[] = [
 		price: 9,
 		image: lettuce,
 		rating: 4,
-		isSale: false
+		reviews: 29,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 6,
@@ -64,7 +74,9 @@ export const products: ProductItem[] = [
 		price: 34,
 		image: eggplant,
 		rating: 3,
-		isSale: false
+		reviews: 6,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 7,
@@ -72,7 +84,9 @@ export const products: ProductItem[] = [
 		price: 20,
 		image: potatoes,
 		rating: 5,
-		isSale: false
+		reviews: 106,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 8,
@@ -80,7 +94,9 @@ export const products: ProductItem[] = [
 		price: 20,
 		image: corn,
 		rating: 4,
-		isSale: false
+		reviews: 52,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 9,
@@ -88,16 +104,20 @@ export const products: ProductItem[] = [
 		price: 12,
 		image: cauliflower,
 		rating: 4,
-		isSale: false
+		reviews: 10,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 10,
 		name: 'Green Capsicum',
-		price: 9,
-		salePrice: 20.99,
+		price: 20.99,
+		salePrice: 9,
 		image: capsicum,
 		rating: 3,
-		isSale: true
+		reviews: 30,
+		isSale: true,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 11,
@@ -105,7 +125,9 @@ export const products: ProductItem[] = [
 		price: 34,
 		image: greenChili,
 		rating: 4,
-		isSale: false
+		reviews: 40,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 12,
@@ -113,16 +135,20 @@ export const products: ProductItem[] = [
 		price: 12,
 		image: redChili,
 		rating: 4,
-		isSale: false
+		reviews: 15,
+		isSale: false,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 13,
 		name: 'Red Tomatoes',
-		price: 9,
-		salePrice: 20.99,
+		price: 20.99,
+		salePrice: 9,
 		image: redTomatoes,
 		rating: 5,
-		isSale: true
+		reviews: 78,
+		isSale: true,
+		category: CategoryNames.Vegetables
 	},
 	{
 		id: 14,
@@ -130,6 +156,8 @@ export const products: ProductItem[] = [
 		price: 34,
 		image: mango,
 		rating: 4,
-		isSale: false
+		reviews: 2,
+		isSale: false,
+		category: CategoryNames.FreshFruit
 	}
 ];

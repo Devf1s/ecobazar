@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { products } from '@/data/products';
-import { isBigProduct } from '@/utils/product';
-import Title from '../common/Title/Title';
-import Container from '../common/Container';
-import Product from '@/components/Product/Product';
+import { QuickViewProps } from '@/types/models/ProductItem';
+import Title from '@/components/common/Title/Title';
+import Container from '@/components/common/Container';
+import Product from '@/components/Product/SmallProduct/SmallProduct';
 import styles from './FeaturedProducts.module.scss';
 
-const FeaturedProducts: FC = () => {
-	const featuredProducts = products.filter(product => !isBigProduct(product)).slice(0, 5);
+const FeaturedProducts: FC<QuickViewProps> = ({ onQuickView }) => {
+	const featuredProducts = products.slice(0, 5);
 
 	return (
 		<div className={styles.products}>
@@ -15,7 +15,11 @@ const FeaturedProducts: FC = () => {
 				<Title text='Featured Products' />
 				<div className={styles.container}>
 					{featuredProducts.map(product =>
-						<Product key={product.id} product={product} />
+						<Product 
+							key={product.id} 
+							product={product} 
+							onQuickView={onQuickView}
+						/>
 					)}
 				</div>
 			</Container>

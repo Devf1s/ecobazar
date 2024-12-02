@@ -64,53 +64,19 @@
 	border-radius: 43px;
 	padding: 16px 40px;
 
-	position: absolute;
-	top: 0;
-	right: -44px;
-	z-index: 10;
-	transition: all .2s ease;
-
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 20px;
 	text-align: center;
 
+	position: absolute;
+	top: 50%;
+	right: -44px;
+	transform: translateY(-50%);
+	transition: all .2s ease;
+	z-index: 10;
+
 	&:hover {
 		background: $hard-primary;
-	}
-}
-
-.social {
-	&Links {
-		display: flex;
-		align-items: center;
-		gap: 8px;
-	}
-
-	&Item {
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		transition: all .2s;
-
-		&:hover {
-			background: $primary;
-
-			.socialLink {
-				color: $white;
-			}
-		}
-	}
-
-	&Link {
-		display: block;
-		max-height: 18px;
-		color: $gray-7;
-		transition: inherit;
 	}
 }

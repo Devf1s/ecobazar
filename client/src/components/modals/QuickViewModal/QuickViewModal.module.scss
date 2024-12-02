@@ -1,0 +1,476 @@
+@import '@/styles/_variables';
+
+.content {
+	width: 100%;
+	height: 636px;
+	max-width: 1320px;
+	background: $white;
+	border-radius: 8px;
+	position: relative;
+	padding: 40px;
+}
+
+.modalClose {
+	width: 25px;
+	height: 25px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	top: -43px;
+	right: 10px;
+
+	transition: all .2s ease-in-out;
+
+	&:hover {
+		transform: rotate(180deg);
+	}
+}
+
+.between {
+	display: flex;
+	gap: 24px;
+}
+
+.details {
+	width: 100%;
+	max-width: 568px;
+}
+
+.product {
+	&Gallery {
+		width: 100%;
+		height: 556px;
+		max-width: 648px;
+
+		display: flex;
+		gap: 12px;
+
+		.prevArrow,
+		.nextArrow {
+			width: 40px;
+			height: 40px;
+			position: static;
+			margin: 0;
+
+			svg {
+				max-width: 24px;
+				max-height: 24px;
+				will-change: color;
+				display: inline-block;
+				transition: all .2s ease-out;
+				color: $gray-4;
+			}
+
+			&:after {
+				display: none;
+			}
+
+			&:focus {
+				outline: none;
+			}
+
+			&:hover {
+				svg {
+					color: $gray-6;
+				}
+			}
+		}
+	}
+
+	&ThumbImage img,
+	&MainImage img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		user-select: none;
+	}
+
+	&Thumb {
+		&Wrapper {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			gap: 56px;
+		}
+
+		&Slider {
+			width: 80px;
+			height: 100%;
+		}
+
+		&Slide {
+			width: 100%;
+			height: 90px;
+			border-radius: 2px;
+			overflow: hidden;
+			cursor: pointer;
+			
+			&:after {
+				content: '';
+				width: 100%;
+				height: 100%;
+				border: 1px solid transparent;
+				position: absolute;
+				inset: 0;
+				opacity: 0;
+				visibility: hidden;
+				transition: all .2s ease-out;
+			}
+
+			&:hover,
+			&.active {
+				&:after {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			&:hover {
+				&:after {
+					border-color: $gray-1;
+				}
+			}
+
+			&.active {
+				&:after {
+					border-color: $primary;
+				}
+			}
+		}
+
+		&Image {
+			width: 100%;
+			height: 90px;
+		}
+	}
+
+	&Main {
+		&Slider {
+			width: 556px;
+			height: 100%;
+		}
+
+		&Image {
+			width: 100%;
+			height: 100%;
+			display: block;
+		}
+	}
+
+	&Top {
+		padding-bottom: 20px;
+		border-bottom: 1px solid $gray-1;
+	}
+
+	&Body {
+		padding: 24px 0;
+	}
+
+	&Details {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		margin-bottom: 16px;
+	}
+
+	&Brand,
+	&Social {
+		display: flex;
+		align-items: center;
+	}
+
+	&Brand {
+		gap: 8px;
+
+		img {
+			width: 56px;
+			height: 56px;
+			display: block;
+		}
+	}
+
+	&Social {
+		gap: 10px;
+	}
+
+	&Text {
+		color: $gray-9;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+	}
+}
+
+.nextArrow {
+	transform: rotate(180deg);
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 12px;
+}
+
+.title {
+	color: $gray-9;
+	font-size: $font-h4;
+	line-height: $line-h4;
+	font-weight: 600;
+}
+
+.availability {
+	height: 29px;
+	padding: 0 8px;
+	background: rgba(32, 181, 38, 0.2);
+	border-radius: 4px;
+
+	display: flex;
+	align-items: center;
+
+	span {
+		color: $hard-primary;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+	}
+}
+
+.metaData {
+	height: 100%;
+	max-height: 21px;
+	margin-bottom: 20px;
+
+	display: inline-flex;
+	align-items: center;
+}
+
+.review {
+	display: flex;
+	align-items: center;
+}
+
+.review span,
+.sku {
+	color: $gray-6;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 400;
+}
+
+.star {
+	width: 18px;
+	height: 18px;
+
+	img {
+		width: 100%;
+		display: inline-block;
+	}
+}
+
+.separator {
+	width: 7px;
+	height: 100%;
+	margin: 0 12px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	span {
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background: $gray-3;
+	}
+}
+
+.sku span {
+	color: $gray-8;
+	font-weight: 600;
+}
+
+.pricing {
+	width: fit-content;
+
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.price {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+
+	color: $hard-primary;
+	font-size: $font-xxl;
+	line-height: $line-xxl;
+	font-weight: 500;
+
+	span {
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 30px;
+		text-decoration: line-through;
+		color: #b3b3b3;
+	}
+}
+
+.discount {
+	height: 27px;
+	padding: 0 10px;
+	background: rgba(234, 75, 72, 0.1);
+	border-radius: 30px;
+
+	display: flex;
+	align-items: center;
+
+	span {
+		color: $danger;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 500;
+	}
+}
+
+.text {
+	color: $gray-5;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 400;
+}
+
+.actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+
+	padding: 18.5px 0;
+	border-top: 1px solid $gray-1;
+	border-bottom: 1px solid $gray-1;
+}
+
+.counter {
+	background: #fff;
+	border: 1px solid $gray-1;
+	border-radius: 170px;
+	padding: 8px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+
+	span {
+		width: 40px;
+		text-align: center;
+		vertical-align: middle;
+
+		color: $gray-9;
+		font-size: $font-md;
+		line-height: $line-md;
+		font-weight: 400;
+	}
+}
+
+.counterBtn {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background: $gray-light;
+
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all .2s ease;
+
+	svg {
+		max-width: 14px;
+		display: inline-block;
+		color: $gray-9;
+	}
+
+	&:hover {
+		background: #d8d8d8;
+	}
+
+	&.disabled {
+		pointer-events: none;
+
+		svg {
+			color: $gray-6;
+		}
+	}
+}
+
+.wishlist {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: rgba(32, 181, 38, 0.1);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	transition: all .2s ease-out;
+
+	svg {
+		color: $hard-primary;
+	}
+
+	&:hover {
+		background: $primary;
+		svg {
+			fill: white;
+			color: white;
+		}
+	}
+}
+
+.metaInfo {
+	margin-top: 24px;
+}
+
+.metaRow {
+	width: fit-content;
+
+	display: flex;
+	align-items: center;
+	margin-bottom: 12px;
+
+	span {
+		color: $gray-5;
+		font-size: $font-sm;
+		line-height: $line-sm;
+		font-weight: 400;
+	}
+}
+
+.metaLabel {
+	color: $gray-9;
+	font-size: $font-sm;
+	line-height: $line-sm;
+	font-weight: 500;
+
+	margin-right: 6px;
+}
+
+.tagList {
+	display: flex;
+	gap: 6px;
+
+	.keyword {
+		color: $gray-9;
+		text-decoration: underline;
+	}
+}

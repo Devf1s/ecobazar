@@ -6,11 +6,11 @@ import styles from './Header.module.scss';
 
 const Header: FC = () => {
 	return (
-		<div className={styles.header}>
+		<header className={styles.header}>
 			<TopBar />
 			<MainHeader />
 			<Navbar />
-		</div>
+		</header>
 	)
 }
 export default Header;

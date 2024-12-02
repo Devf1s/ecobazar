@@ -20,9 +20,7 @@
 	text-align: center;
 
 	&Dark {
-
-		p,
-		h3 {
+		p, h3 {
 			color: $gray-9;
 		}
 	}
@@ -77,17 +75,11 @@
 }
 
 .timer {
+	justify-content: center;
 	margin-bottom: 24px;
 
 	&Colon {
-		width: 6px;
-		height: 36px;
-		margin: 0 8px;
-		gap: 7px;
-
 		span {
-			width: 5px;
-			height: 5px;
 			background: rgba(255, 255, 255, 0.6);
 		}
 	}
