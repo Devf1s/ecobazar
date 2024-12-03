@@ -4,7 +4,9 @@ import styles from './Login.module.scss';
 const Login: FC = () => {
 	return (
 		<div className={styles.login}>
-			Login
+			<h1 className={styles.title}>
+				Sign In
+			</h1>
 		</div>
 	)
 }

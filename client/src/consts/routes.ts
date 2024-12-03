@@ -1,5 +1,5 @@
 import Home from '@/pages/home/Home';
-import Login from '@/pages/login/Login';
+import Login from '@/pages/login/Login/Login';
 import Shop from '@/pages/shop/Shop';
 import Error from '@/pages/error/Error';
 
