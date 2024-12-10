@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '@/components/common/Container';
-import { dropdown, pin } from '../../../assets/images/images';
+import { dropdown, pin } from '@images/images';
 import styles from './TopBar.module.scss';
+import { RouteNames } from '@/consts/routes';
 
 const TopBar: FC = () => {
 	return (
@@ -22,9 +23,9 @@ const TopBar: FC = () => {
 						</div>
 						<div className={styles.divider}></div>
 						<div className={styles.authLinks}>
-							<Link to="/sign-in">Sign In</Link>
+							<Link to={RouteNames.LOGIN_ROUTE}>Sign In</Link>
 							<span>/</span>
-							<Link to="/sign-up">Sign Up</Link>
+							<Link to={RouteNames.REGISTER_ROUTE}>Sign Up</Link>
 						</div>
 					</div>
 				</div>

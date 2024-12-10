@@ -4,6 +4,8 @@ import logo from './logo.svg';
 import dropdown from './controls/dropdown-arrow.svg';
 import arrowDown from './controls/arrow-down.svg';
 import greenArrow from './controls/green-arrow.svg';
+import eyeOpen from './controls/eye-open.svg';
+import eyeClosed from './controls/eye-closed.svg';
 
 import pin from './icons/pin.svg';
 import search from './icons/search.svg';
@@ -26,6 +28,8 @@ export {
 	dropdown,
 	arrowDown,
 	greenArrow,
+	eyeOpen,
+	eyeClosed,
 	pin,
 	search,
 	heart,

@@ -1,0 +1,42 @@
+@import '@/styles/_variables';
+
+.input {
+	width: 100%;
+	padding: 14px 16px;
+
+	background: $white;
+	border: 1px solid $gray-1;
+	border-radius: 6px;
+
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 21px;
+	color: $gray-9;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	transition: all .1s ease;
+
+	&:hover {
+		border-color: $gray-3;
+	}
+
+	&:focus {
+		border-color: $gray-6;
+	}
+
+	&.invalid {
+		border-color: $danger;
+	}
+
+	&::placeholder {
+		color: $gray-4;
+		user-select: none;
+	}
+
+	&Wrapper {
+		position: relative;
+	}
+}

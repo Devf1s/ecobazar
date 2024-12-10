@@ -28,28 +28,36 @@
 		
 		a {
 			display: inline-flex;
-		}
 
-		svg {
-			flex: 1 0 24px;
-			color: $gray-5;
-			transition: all .2s;
-		}
-
-		&:after {
-			content: '';
-			// background: url();
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
+			svg {
+				flex: 1 0 24px;
+				color: $gray-5;
+				transition: all .2s;
+			}
 		}
 
 		&.active {
 			color: $primary;
 
-			svg {
-				color: $primary;
+			a {
+				svg {
+					color: $primary;
+				}
 			}
 		}
+	}
+}
+
+.separator {
+	height: 100%;
+	user-select: none;
+	position: absolute;
+	top: 50%;
+	right: -20px;
+	transform: translateY(-50%);
+	
+	img {
+		min-width: 6px;
+		min-height: 10px;
 	}
 }

@@ -2,8 +2,10 @@ import { FC } from 'react';
 import { RouteNames } from '@/consts/routes';
 import { Link, useLocation } from 'react-router-dom';
 import Container from '@/components/common/Container';
+import breadcrumbs from '@images/banners/breadcrumbs.jpg';
 import { Home } from '@images/components';
 import styles from './Breadcrumb.module.scss';
+import { separator } from '@/assets/images/images';
 
 const Breadcrumb: FC = () => {
 	const location = useLocation();
@@ -12,7 +14,8 @@ const Breadcrumb: FC = () => {
 	return (
 		<nav
 			aria-label='breadcrumb'
-			className={styles.breadcrumb}
+			className={`${styles.breadcrumb} bg-image`}
+			// style={{ backgroundImage: `url(${breadcrumbs})` }}
 		>
 			<Container>
 				<ul className={styles.breadcrumbList}>
@@ -21,6 +24,9 @@ const Breadcrumb: FC = () => {
 							<Link to={RouteNames.HOME_ROUTE}>
 								<Home />
 							</Link>
+							<div className={styles.separator}>
+								<img src={separator} alt='Separator' />
+							</div>
 						</li>
 						:
 						<li className={`${styles.breadcrumbItem} ${styles.active}`}>
@@ -42,7 +48,9 @@ const Breadcrumb: FC = () => {
 							:
 							<li key={path} className={styles.breadcrumbItem}>
 								<Link to={path}>{value}</Link>
-								<span className={styles.separator}></span>
+								<div className={styles.separator}>
+									<img src={separator} alt='Separator' />
+								</div>
 							</li>
 					})}
 				</ul>
