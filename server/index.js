@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./db');
-const models = require('./models');
-const router = require('./routes');
-// const fileUpload = require('express-fileupload');
+const models = require('./models/models');
+const router = require('./routes/router');
+const fileUpload = require('express-fileupload');
 const errorHandler = require('./middleware/ErrorHandlingMiddleware');
 const path = require('path');
 
@@ -14,7 +14,7 @@ const app = express(); // App
 app.use(cors()); // Middleware
 app.use(express.json()); // Middleware in JSON format
 app.use(express.static(path.resolve(__dirname, 'static')));
-// app.use(fileUpload({}));
+app.use(fileUpload({}));
 app.use('/api', router);
 app.use(errorHandler); // Middleware that works with errors should be registered at the end
 
