@@ -74,5 +74,22 @@ class ProductController {
 			res.status(500).json({ error: 'Error while get product!' });
 		}
 	};
+
+	async deleteProduct(req, res) {
+		try {
+			const { id } = req.params;
+
+			const product = await Product.findByPk(id);
+		if (!product) {
+			return res.status(404).json({ error: 'Product not found.' });
+		}
+	
+			await product.destroy();
+			return res.status(200).json({ message: 'Product deleted successfully.' });
+		}catch (error) {
+			console.error(error);
+			return res.status(500).json({ error: 'Failed to delete product.' });
+		}
+	}
 }
 module.exports = new ProductController();

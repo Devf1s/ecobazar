@@ -54,7 +54,8 @@ const Product = sequelize.define('Product', {
 
 // BasketProduct Model
 const BasketProduct = sequelize.define('BasketProduct', {
-	id: { type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true }
+	id: { type: DataTypes.INTEGER, primaryKey:true, autoIncrement:true },
+  quantity: { type: DataTypes.INTEGER, defaultValue:1, validate:{min:1, max: 100}}
 });
 
 // Review Model

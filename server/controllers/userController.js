@@ -1,5 +1,5 @@
 const ApiError = require('../error/ApiError');
-// const { User, Basket } = require('../models');
+const { User, Basket } = require('../models/models');
 
 const bcrypt = require('bcrypt');
 // const jwt = require('jsonwebtoken'); // JSON Web Token for transmission to client
@@ -18,14 +18,14 @@ const { validationResult } = require('express-validator');
 // }
 
 class UserController {
-	async registration(req, res, next) {
+	async create(req, res, next) {
 		try {
 			const errors = validationResult(req);
 			if (!errors.isEmpty()) {
 				const errorMessages = errors.errors.map(error => error.msg);
 				return next(ApiError.badRequest(errorMessages));
 			}
-
+			
 			const { email, password } = req.body;
 			if (!email || !password) {
 				return next(ApiError.badRequest('Uncorrect email or password!'));
@@ -36,17 +36,36 @@ class UserController {
 				return next(ApiError.duplicate('User with such email already exists!'));
 			}
 			
-			// const hashPassword = bcrypt.hashSync(password, 7);
-			// const user = await User.create({ email, password: hashPassword });
-			// const basket = await Basket.create({ userId: user.id });
-			// const token = generateJwt(user.id, user.email, user.role);
-			// return res.json({ token });
 			return res.status(200).json({ message: 'User created!' });
 		} catch (e) {
 			console.log(e);
 			return next(ApiError.badRequest('Registration error'));
 		}
 	}
+
+	async edit(req, res) {
+		try {
+		  	const { id } = req.params;
+		  	const { email, password, isActive } = req.body;
+	
+		  	const user = await User.findByPk(id);
+		  	if (!user) {
+				return res.status(404).json({ error: 'User not found.' });
+		  	}
+	
+		  	user.email = email ?? user.email;
+			user.password = password ?? user.password;
+			user.isActive = isActive ?? user.isActive;
+	
+			await user.save();
+	
+			return res.status(200).json(user);
+		}catch (error) {
+			console.error(error);
+			return res.status(500).json({ error: 'Failed to edit user.' });
+		}
+	}
+	
 
 	async login(req, res, next) {
 		try {
@@ -84,7 +103,7 @@ class UserController {
         }
     }
 
-	async getUsers(req, res) {
+	async getAll(req, res) {
 		try {
 			const users = await User.findAll();
 			res.json(users);
@@ -92,15 +111,19 @@ class UserController {
 			console.log(e);
 		}
 	}
+	async getOne(req, res) {
+		try {
+		  	const { id } = req.params;
+		  	const user = await User.findByPk(id);
+		  	if (!user) {
+				return res.status(404).json({ error: 'User not found.' });
+		  	}
+		  	return res.status(200).json(user);
+		}catch (error) {
+		  	console.error(error);
+		  	return res.status(500).json({ error: 'Failed to fetch user.' });
+		}
+	}
 
-	// async check(req, res) {
-	// 	try {
-	// 		const { id, email, role } = req.user;
-	// 		const token = generateJwt(id, email, role);
-	// 		return res.json({ token });
-	// 	} catch (e) {
-	// 		console.log(e);
-	// 	}
-	// }
 }
 module.exports = new UserController();

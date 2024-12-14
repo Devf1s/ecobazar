@@ -16,6 +16,7 @@ app.use(express.json()); // Middleware in JSON format
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(fileUpload({}));
 app.use('/api', router);
+app.use('/', (req, res) => { res.status(200).json({message:"hello world!"})})
 app.use(errorHandler); // Middleware that works with errors should be registered at the end
 
 const start = async () => {

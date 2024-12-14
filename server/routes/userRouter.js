@@ -7,8 +7,9 @@ const { check } = require('express-validator');
 router.post('/register', [
 	check('email', 'Email cannot be empty!').notEmpty(),
 	check('password', 'Password must be at least 8 characters long!').isLength({ min: 8 }),
-], userController.registration);
+], userController.create);
 router.post('/login', userController.login);
-// router.get('/auth', authMiddleware, userController.check);
+router.get('/', userController.getAll)
+router.get('/:id', userController.getOne)
 
 module.exports = router;
