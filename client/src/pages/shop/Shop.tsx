@@ -21,6 +21,7 @@ const Shop: FC = () => {
     }
 	
 	useEffect(() => {
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 		dispatch(setTotalCount(pageCount));
 	}, [pageCount]);
 	
