@@ -4,11 +4,11 @@ class ReviewController {
     // Create a review
     async create(req, res) {
         try {
-            const { productId, userId, content, rating } = req.body;
-            if (!productId || !userId || !content || !rating) {
+            const { ProductId, UserId, text, rate } = req.body;
+            if (!ProductId || !UserId || !text || !rate) {
                 return res.status(400).json({ error: 'All fields are required.' });
             }
-            const review = await Review.create({ productId, userId, content, rating });
+            const review = await Review.create({ ProductId, UserId, text, rate });
             return res.status(201).json(review);
         } catch (error) {
             console.error(error);
@@ -38,15 +38,15 @@ class ReviewController {
     async edit(req, res) {
         try {
             const { id } = req.params;
-            const { content, rating } = req.body;
+            const { text, rate } = req.body;
 
             const review = await Review.findByPk(id);
             if (!review) {
                 return res.status(404).json({ error: 'Review not found.' });
             }
 
-            review.content = content ?? review.content;
-            review.rating = rating ?? review.rating;
+            review.text = text ?? review.text;
+            review.rate = rate ?? review.rate;
 
             await review.save();
             return res.status(200).json(review);
@@ -59,9 +59,9 @@ class ReviewController {
     // Get a single review by ID
     async getOne(req, res) {
         try {
-            const { userId, productId } = req.params;
+            const { UserId, ProductId } = req.params;
 
-            const review = await Review.findOne({where:{productId, userId}});
+            const review = await Review.findOne({where:{ProductId, UserId}});
             if (!review) {
                 return res.status(404).json({ error: 'Review not found.' });
             }

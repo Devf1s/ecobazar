@@ -1,9 +1,11 @@
+const { INTEGER } = require('sequelize');
 const ApiError = require('../error/ApiError');
 const { User, Basket } = require('../models/models');
 
 const bcrypt = require('bcrypt');
 // const jwt = require('jsonwebtoken'); // JSON Web Token for transmission to client
 const { validationResult } = require('express-validator');
+const e = require('express');
 
 // const generateJwt = (id, email, role, next) => {
 // 	if (!process.env.SECRET_KEY) {
@@ -34,9 +36,11 @@ class UserController {
 			const candidate = await User.findOne({ where: { email } });
 			if (candidate) {
 				return next(ApiError.duplicate('User with such email already exists!'));
-			}
+			}	
 			
-			return res.status(200).json({ message: 'User created!' });
+			const user = await User.create({email, password})
+
+			return res.status(200).json({ message: 'User created!', user: user });
 		} catch (e) {
 			console.log(e);
 			return next(ApiError.badRequest('Registration error'));
@@ -45,9 +49,8 @@ class UserController {
 
 	async edit(req, res) {
 		try {
-		  	const { id } = req.params;
-		  	const { email, password, isActive } = req.body;
-	
+		  	const { id, email, password, isActive } = req.body;	
+
 		  	const user = await User.findByPk(id);
 		  	if (!user) {
 				return res.status(404).json({ error: 'User not found.' });

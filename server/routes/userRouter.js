@@ -9,6 +9,7 @@ router.post('/register', [
 	check('password', 'Password must be at least 8 characters long!').isLength({ min: 8 }),
 ], userController.create);
 router.post('/login', userController.login);
+router.post('/edit', userController.edit)
 router.get('/', userController.getAll)
 router.get('/:id', userController.getOne)
 

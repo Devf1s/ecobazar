@@ -1,61 +1,72 @@
 const ApiError = require('../error/ApiError');
 const { Product } = require('../models/models');
-const { v4:uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
 class ProductController {
 	async create(req, res) {
 		try {
-			const { name, price, salePrice, isSale } = req.body;
-	  
-			// Валидация данных
+			const { name, price, salePrice, isSale, CategoryId } = req.body;
+
+			// Validation
 			if (!name || !price) {
-			  return res.status(400).json({ error: 'Name and price are required.' });
+				return res.status(400).json({ error: 'Name and price are required.' });
 			}
-	  
+
 			let imagePath = null;
-	  
-			// Проверяем, был ли загружен файл
+
+			// Check if a file was uploaded
 			if (req.files && req.files.image) {
-			  const imageFile = req.files.image;
-	  
-			  // Проверяем тип файла
-			  if (!imageFile.mimetype.startsWith('image/')) {
-				return res.status(400).json({ error: 'Invalid file type. Only images are allowed.' });
-			  }
-	  
-			  // Генерируем уникальное имя файла с расширением
-			  const imageFileName = `${uuidv4()}${path.extname(imageFile.name)}`;
-	  
-			  // Путь для сохранения файла
-			  imagePath = `../static/${imageFileName}`;
-			  const fullPath = path.join(__dirname, '../static', imageFileName);
-	  
-			  // Сохраняем файл
-			  await imageFile.mv(fullPath);
+				const imageFile = req.files.image;
+
+				// Validate file type
+				if (!imageFile.mimetype.startsWith('image/')) {
+					return res.status(400).json({ error: 'Invalid file type. Only images are allowed.' });
+				}
+
+				// Generate unique file name with extension
+				const imageFileName = `${uuidv4()}${path.extname(imageFile.name)}`;
+
+				// Resolve path for saving the file
+				imagePath = path.resolve(__dirname, '../static', imageFileName);
+
+				// Save the file
+				await imageFile.mv(imagePath);
 			}
-	  
-			// Создаём продукт
+
+			// Create product
 			const product = await Product.create({
-			  name,
-			  price,
-			  salePrice,
-			  image: imagePath, // Если изображения нет, поле будет null
-			  isSale,
+				name,
+				price,
+				salePrice,
+				image: imagePath, // Null if no image is uploaded
+				isSale,
+				CategoryId,
 			});
-	  
+
 			return res.status(201).json(product);
-		  } catch (error) {
+		} catch (error) {
 			console.error(error);
 			return res.status(500).json({ error: 'Failed to create product.' });
-		  }
-	};
+		}
+	}
 
 	async getAll(req, res) {
 		try {
-			const products = await Product.findAll(); // Получение всех записей
+			let { CategoryId, limit, page } = req.query;
+			page = page || 1
+			limit = limit || 15;
+			let offset = page * limit - limit
+
+			let products = null;
+			if(CategoryId){
+				products = await Product.findAndCountAll({where: {CategoryId}, limit, offset}); // Получение всех записей
+			}
+			else{
+				products = await Product.findAndCountAll({limit, offset }); // Получение всех записей
+			}
 			return res.status(200).json(products);
-		}catch (error) {
+		} catch (error) {
 			console.error(error);
 			return res.status(500).json({ error: 'Failed to fetch products.' });
 		}
@@ -77,16 +88,16 @@ class ProductController {
 
 	async deleteProduct(req, res) {
 		try {
-			const { id } = req.params;
+			const { id } = req.body;
 
 			const product = await Product.findByPk(id);
-		if (!product) {
-			return res.status(404).json({ error: 'Product not found.' });
-		}
-	
+			if (!product) {
+				return res.status(404).json({ error: 'Product not found.' });
+			}
+
 			await product.destroy();
 			return res.status(200).json({ message: 'Product deleted successfully.' });
-		}catch (error) {
+		} catch (error) {
 			console.error(error);
 			return res.status(500).json({ error: 'Failed to delete product.' });
 		}

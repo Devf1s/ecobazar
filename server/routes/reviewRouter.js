@@ -5,9 +5,9 @@ const reviewController = require('../controllers/reviewController');
 const { check } = require('express-validator');
 
 router.post('/add', reviewController.create);
-router.post('/del', reviewController.delete);
-router.post('/edit', reviewController.edit);
-router.get('/:product&:user', reviewController.getOne);
-router.get('/:product', reviewController.getAllbyProduct);
+router.post('/del/:id', reviewController.delete);
+router.post('/edit/:id', reviewController.edit);
+router.get('/:UserId/:ProductId', reviewController.getOne);
+router.get('/:ProductId', reviewController.getAllbyProduct);
 
 module.exports = router;
