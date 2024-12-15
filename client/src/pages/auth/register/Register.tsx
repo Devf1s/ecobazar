@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '@/hooks/redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { setIsAuth } from '@/store/reducers/userSlice';
 import { useInput } from '@/hooks/useInput';
@@ -15,7 +15,7 @@ import classNames from 'classnames';
 import styles from './Register.module.scss';
 
 const Register: FC = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
 	const email = useInput();

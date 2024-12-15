@@ -10,30 +10,94 @@
 	align-items: center;
 }
 
-.items {
-	display: flex;
-	margin: 0 12px;
+.nav {
+	&Items {
+		display: flex;
+		gap: 6px;
+		margin: 0 12px;
+	}
+
+	&Item {
+		width: 36px;
+		height: 36px;
+		position: relative;
+	}
+
+	&Button {
+		color: $gray-6;
+		font-size: $font-md;
+		line-height: $line-md;
+		font-weight: 500;
+
+		p {
+			position: absolute;
+			top: 51.5%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&.active {
+			color: $white;
+			background: $primary;
+
+			svg {
+				color: $white;
+			}
+		}
+	}
 }
 
-.btn {
+.ellipsis {
+	color: $gray-6;
+	font-size: $font-md;
+	line-height: $line-md;
+	font-weight: 500;
+
+	padding: 8px;
+}
+
+.button {
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
+	position: relative;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	color: $white;
-	font-size: $font-md;
-	line-height: $line-md;
-	font-weight: 500;
-	
-	transition: all .2 ease;
+	color: $gray-6;
+	transition: all .2s ease;
+}
 
-	&:hover,
-	&.active {
+.prev,
+.next {
+	position: relative;
+	background: transparent;
+	border: 1px solid $gray-1;
+
+	svg {
+		color: $gray-9;
+		position: absolute;
+		top: 50%;
+		user-select: none;
+		transform: translate(-55%, -50%);
+	}
+
+	&:disabled {
+		pointer-events: none;
+		background: $gray-light;
+		border-color: transparent;
+
+		svg {
+			color: $gray-3;
+		}
+	}
+
+	&:hover {
+		color: $white;
 		background: $primary;
+		border-color: $primary;
 
 		svg {
 			color: $white;
@@ -41,27 +105,15 @@
 	}
 }
 
-.prev,
-.next {
-	background: $gray-light;
-	border: 1px solid transparent;
-
+.prev {
 	svg {
-		color: $gray-3;
-	}
-
-	&.active {
-		background: transparent;
-		border-color: $gray-1;
-
-		svg {
-			color: $gray-9;
-		}
+		left: 48.5%;
 	}
 }
 
 .next {
 	svg {
-		transform: rotate(180deg);
+		left: 50%;
+		transform: translate(-45%, -50%) rotate(180deg);
 	}
 }

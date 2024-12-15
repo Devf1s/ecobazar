@@ -1,6 +1,6 @@
 import { FC, FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '@/hooks/redux';
 import { setIsAuth } from '@/store/reducers/userSlice';
 import { useInput } from '@/hooks/useInput';
 import { RouteNames } from '@/consts/routes';
@@ -15,7 +15,7 @@ import classNames from 'classnames';
 import styles from './Login.module.scss';
 
 const Login: FC = () => {
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
 	const email = useInput();
