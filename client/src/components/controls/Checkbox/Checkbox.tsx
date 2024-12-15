@@ -1,4 +1,4 @@
-import { FC, ChangeEvent, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { check } from '@images/images';
 import classNames from 'classnames';
 import styles from './Checkbox.module.scss';

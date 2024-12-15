@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { RouteNames } from '@/consts/routes';
 import { Link, useLocation } from 'react-router-dom';
 import Container from '@/components/common/Container';
-import breadcrumbs from '@images/banners/breadcrumbs.jpg';
 import { Home } from '@images/components';
 import styles from './Breadcrumb.module.scss';
 import { separator } from '@/assets/images/images';
@@ -14,7 +13,8 @@ const Breadcrumb: FC = () => {
 	return (
 		<nav
 			aria-label='breadcrumb'
-			className={`${styles.breadcrumb} bg-image`}
+			className={styles.breadcrumb}
+			// className={`${styles.breadcrumb} bg-image`}
 			// style={{ backgroundImage: `url(${breadcrumbs})` }}
 		>
 			<Container>
