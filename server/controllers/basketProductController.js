@@ -4,21 +4,21 @@ class BasketProductController {
     // Add a product to the basket
     async addProduct(req, res) {
         try {
-            const { basketId, productId, quantity } = req.body;
+            const { BasketId, ProductId, quantity } = req.body;
 
-            const basket = await Basket.findByPk(basketId);
+            const basket = await Basket.findByPk(BasketId);
             if (!basket) {
                 return res.status(404).json({ error: 'Basket not found.' });
             }
 
-            const product = await Product.findByPk(productId);
+            const product = await Product.findByPk(ProductId);
             if (!product) {
                 return res.status(404).json({ error: 'Product not found.' });
             }
 
             const basketProduct = await BasketProduct.create({
-                basketId,
-                productId,
+                BasketId,
+                ProductId,
                 quantity,
             });
 
@@ -32,9 +32,9 @@ class BasketProductController {
     // Remove a product from the basket
     async removeProduct(req, res) {
         try {
-            const { id } = req.params;
+            const { ProductId } = req.params;
 
-            const basketProduct = await BasketProduct.findByPk(id);
+            const basketProduct = await BasketProduct.findOne({where:{ ProductId }});
             if (!basketProduct) {
                 return res.status(404).json({ error: 'Basket product not found.' });
             }
