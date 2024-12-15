@@ -1,7 +1,7 @@
 import Home from '@/pages/home/Home';
 import Shop from '@/pages/shop/Shop';
-import Login from '@/pages/auth/login/Login';
-import Register from '@/pages/auth/register/Register';
+import Login from '@/pages/auth/Login';
+import Register from '@/pages/auth/Register';
 import Error from '@/pages/error/Error';
 
 // const Home = lazy(() => import(''));
@@ -28,6 +28,10 @@ export const guestRoutes: Route[] = [
 	{
 		path: RouteNames.HOME_ROUTE,
 		element: Home
+	},
+	{
+		path: RouteNames.LOGIN_ROUTE,
+		element: Login
 	},
 	{
 		path: RouteNames.REGISTER_ROUTE,

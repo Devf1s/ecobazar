@@ -54,6 +54,7 @@
 	font-weight: 500;
 
 	padding: 8px;
+	user-select: none;
 }
 
 .button {
@@ -67,6 +68,7 @@
 	align-items: center;
 
 	color: $gray-6;
+	user-select: none;
 	transition: all .2s ease;
 }
 

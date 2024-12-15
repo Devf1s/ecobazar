@@ -12,7 +12,7 @@ import EmailInput from '@/components/controls/Inputs/EmailInput';
 import PasswordInput from '@/components/controls/Inputs/PasswordInput';
 import Checkbox from '@/components/controls/Checkbox/Checkbox';
 import classNames from 'classnames';
-import styles from './Register.module.scss';
+import styles from './Auth.module.scss';
 
 const Register: FC = () => {
 	const dispatch = useAppDispatch();

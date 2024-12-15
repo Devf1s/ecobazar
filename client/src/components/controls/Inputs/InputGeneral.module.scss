@@ -3,6 +3,7 @@
 .input {
 	width: 100%;
 	padding: 14px 16px;
+	padding-right: 32px;
 
 	background: $white;
 	border: 1px solid $gray-1;
@@ -38,5 +39,19 @@
 
 	&Wrapper {
 		position: relative;
+	}
+}
+
+.showPassword {
+	position: absolute;
+	top: 50%;
+	right: 16px;
+	transform: translateY(-50%);
+
+	img {
+		width: 20px;
+		height: 20px;
+		display: block;
+		user-select: none;
 	}
 }

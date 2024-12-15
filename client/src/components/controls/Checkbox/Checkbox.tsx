@@ -8,7 +8,7 @@ interface CheckboxProps {
 	name: string;
 	label?: ReactNode | string;
 	checked: boolean;
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	onChange: () => void;
 	customStyles?: { [key: string]: string }
 }
 

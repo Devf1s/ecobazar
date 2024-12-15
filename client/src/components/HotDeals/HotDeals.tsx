@@ -25,7 +25,7 @@ const HotDeals: FC<QuickViewProps> = ({ onQuickView }) => {
 		{ bigProduct: null, remainingProducts: [] }
 	);
 
-	const smallProducts = remainingProducts.slice(0, 10);
+	const smallProducts = remainingProducts.slice(0, 11);
 
 	return (
 		<div className={styles.hotDeals}>

@@ -10,7 +10,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-	isAuth: true,
+	isAuth: false,
 	user: {
 		id: '',
 		email: '',

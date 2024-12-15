@@ -4,8 +4,11 @@ import Container from '@/components/common/Container';
 import { dropdown, pin } from '@images/images';
 import styles from './TopBar.module.scss';
 import { RouteNames } from '@/consts/routes';
+import { useAppSelector } from '@/hooks/redux';
 
 const TopBar: FC = () => {
+	const { isAuth } = useAppSelector(state => state.user);
+
 	return (
 		<div className={styles.topBar}>
 			<Container>
@@ -21,12 +24,16 @@ const TopBar: FC = () => {
 						<div className={`${styles.dropdown} ${styles.currency}`}>
 							USD <img src={dropdown} alt='Dropdown' />
 						</div>
-						<div className={styles.divider}></div>
-						<div className={styles.authLinks}>
-							<Link to={RouteNames.LOGIN_ROUTE}>Sign In</Link>
-							<span>/</span>
-							<Link to={RouteNames.REGISTER_ROUTE}>Sign Up</Link>
-						</div>
+						{!isAuth &&
+							<>
+								<div className={styles.divider}></div>
+								<div className={styles.authLinks}>
+									<Link to={RouteNames.LOGIN_ROUTE}>Sign In</Link>
+									<span>/</span>
+									<Link to={RouteNames.REGISTER_ROUTE}>Sign Up</Link>
+								</div>
+							</>
+						}
 					</div>
 				</div>
 			</Container>

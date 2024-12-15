@@ -1,25 +1,31 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { ratingOptions } from '@/data/filter/rating';
 import Checkbox from '@/components/controls/Checkbox/Checkbox';
 import styles from './RatingFilter.module.scss';
 import Stars from '@/components/common/Stars/Stars';
 
 const RatingFilter: FC = () => {
-	// const [isChecked, setIsChecked] = useState<boolean>(false);
+	const [isChecked, setIsChecked] = useState<boolean[]>(
+		ratingOptions.map(() => false)
+	);
+
+	const handleChange = (index: number) => {
+		setIsChecked(prev => prev.map((checked, i) => (i === index ? !checked : checked)));
+	};
 
 	return (
 		<div className={styles.ratingFilter}>
 			<ul className={styles.list}>
-				{ratingOptions.map(option =>
+				{ratingOptions.map((option, index) =>
 					<li
 						key={option.id}
 						className={styles.option}
 					>
 						<Checkbox
-							id={option.id}
+							id={option.count}
 							name={option.count}
-							checked={false}
-							onChange={() => console.log('Option ' + option.id)}
+							checked={isChecked[index]}
+							onChange={() => handleChange(index)}
 							label={
 								<>
 									<Stars
