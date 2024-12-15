@@ -21,9 +21,8 @@ const Shop: FC = () => {
     }
 	
 	useEffect(() => {
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 		dispatch(setTotalCount(pageCount));
-	}, [pageCount]);
+	}, [dispatch, pageCount]);
 	
 	// const [productsList, setProductsList] = useState(products);
 	// const [selectedProduct, setSelectedProduct] = useState<string>(''); // Sort Input
