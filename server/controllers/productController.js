@@ -1,5 +1,5 @@
 const ApiError = require('../error/ApiError');
-const { Product } = require('../models/models');
+const { Product } = require('../models');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
@@ -10,7 +10,13 @@ class ProductController {
 
 			// Validation
 			if (!name || !price) {
-				return res.status(400).json({ error: 'Name and price are required.' });
+				throw ApiError.badRequest('Name and price are required.');
+			}
+			if (isNaN(price) || (salePrice && isNaN(salePrice))) {
+				throw ApiError.badRequest('Price and salePrice must be valid numbers.');
+			}
+			if (!CategoryId) {
+				throw ApiError.badRequest('CategoryId is required.');
 			}
 
 			let imagePath = null;
@@ -21,7 +27,7 @@ class ProductController {
 
 				// Validate file type
 				if (!imageFile.mimetype.startsWith('image/')) {
-					return res.status(400).json({ error: 'Invalid file type. Only images are allowed.' });
+					throw ApiError.invalidFileType('Invalid file type. Only images are allowed.');
 				}
 
 				// Generate unique file name with extension
@@ -43,7 +49,7 @@ class ProductController {
 				isSale,
 				CategoryId,
 			});
-
+			
 			return res.status(201).json(product);
 		} catch (error) {
 			console.error(error);
@@ -86,7 +92,7 @@ class ProductController {
 		}
 	};
 
-	async deleteProduct(req, res) {
+	async delete(req, res) {
 		try {
 			const { id } = req.body;
 

@@ -2,11 +2,11 @@ export interface ProductItem {
 	id: number;
 	name: string;               
 	price: number;  
-	salePrice?: number;            
+	salePrice?: number;  
+	isSale: boolean;          
 	image: string;           
 	rating: number;   
 	reviews: number;          
-	isSale: boolean;
 	category: string;           
 }
 

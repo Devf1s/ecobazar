@@ -6,6 +6,10 @@ class ApiError extends Error {
 	}
 
 	static badRequest(message) {
+		return new ApiError(400, message);
+	}
+
+	static notFound(message) {
 		return new ApiError(404, message);
 	}
 
@@ -23,6 +27,10 @@ class ApiError extends Error {
 
 	static duplicate(message) {
 		return new ApiError(409, message);
+	}
+
+	static fileType(message) {
+		return new ApiError(415, message); 
 	}
 }
 module.exports = ApiError;
