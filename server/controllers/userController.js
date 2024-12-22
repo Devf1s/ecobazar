@@ -83,9 +83,8 @@ class UserController {
 			await user.save();
 	
 			return res.status(200).json(user);
-		}catch (error) {
-			console.error(error);
-			return res.status(500).json({ error: 'Failed to edit user.' });
+		}catch (e) {
+			return next(ApiError.internal('Failed to edit user.'));
 		}
 	}
 
@@ -96,17 +95,16 @@ class UserController {
             if (!deleted) {
                 return next(ApiError.badRequest('User not found'));
             }
-            return res.json({ message: 'User deleted successfully!' });
+            return res.status(200).json({ message: 'User deleted successfully!' });
         } catch (e) {
-            console.log(e);
-            return next(ApiError.internal('Internal server error'));
+            return next(ApiError.internal('Failed to delete user.'));
         }
     }
 
 	async getAll(req, res) {
 		try {
 			const users = await User.findAll();
-			res.json(users);
+			res.status(200).json(users);
 		} catch (e) {
 			console.log(e);
 		}
@@ -117,12 +115,11 @@ class UserController {
 		  	const { id } = req.params;
 		  	const user = await User.findByPk(id);
 		  	if (!user) {
-				return res.status(404).json({ error: 'User not found.' });
+				return next(ApiError.notFound('User not found.'));
 		  	}
 		  	return res.status(200).json(user);
-		}catch (error) {
-		  	console.error(error);
-		  	return res.status(500).json({ error: 'Failed to fetch user.' });
+		}catch (e) {
+			return next(ApiError.internal('Failed to fetch user.'));
 		}
 	}
 
