@@ -1,22 +1,39 @@
 const ApiError = require('../error/ApiError');
-const { Product } = require('../models');
+const { Product, Category, ProductInfo, Rating } = require('../models');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
+
+// Helper
+const checkIdsExist = async (ids, model) => {
+	return Promise.all(ids.map(async (id) => await model.findByPk(id)));
+};
 
 class ProductController {
 	async create(req, res) {
 		try {
-			const { name, price, salePrice, isSale, CategoryId } = req.body;
+			const { 
+				name, price, salePrice, isSale, 
+				reviews, ratingId, categoryId, description, info 
+			} = req.body;
+
+			const [isCategory, isRating] = await checkIdsExist(
+				[categoryId, ratingId],
+				[Category, Rating]
+			);
 
 			// Validation
-			if (!name || !price) {
-				throw ApiError.badRequest('Name and price are required.');
+			if (
+				[name, description].includes(undefined) || 
+				[price, salePrice, reviews].some(isNaN) || 
+				isSale == null
+			) {
+				return next(ApiError.badRequest('Missed required fields: Ensure all fields are valid and not empty'));
 			}
-			if (isNaN(price) || (salePrice && isNaN(salePrice))) {
-				throw ApiError.badRequest('Price and salePrice must be valid numbers.');
+			if (!isCategory) {
+				return next(ApiError.badRequest('Category does not exist.'));
 			}
-			if (!CategoryId) {
-				throw ApiError.badRequest('CategoryId is required.');
+			if (!isRating) {
+				return next(ApiError.badRequest('Rating does not exist.'));
 			}
 
 			let imagePath = null;
@@ -45,68 +62,72 @@ class ProductController {
 				name,
 				price,
 				salePrice,
-				image: imagePath, // Null if no image is uploaded
 				isSale,
-				CategoryId,
+				image: imagePath, // Null if no image is uploaded
+				reviews,
+				ratingId,
+				categoryId,
+				description
 			});
-			
-			return res.status(201).json(product);
-		} catch (error) {
-			console.error(error);
-			return res.status(500).json({ error: 'Failed to create product.' });
+			console.log(product);
+
+			if (info) {
+				info = JSON.parse(info);
+				info.forEach(el => {
+					ProductInfo.create({
+						description: el.description,
+						benefits: el.benefits,
+						productId: product.id
+					});
+				});
+			}
+			return res.status(200).json(product);
+		} catch (e) {
+			return next(ApiError.internal('Failed to create product.'));
+		}
+	}
+
+	async delete(req, res, next) {
+		try {
+			const { id } = req.params;
+			const deleted = await Product.destroy({ where: { id } });
+			if (!deleted) {
+				return next(ApiError.badRequest('Product not found'));
+			}
+			return res.status(200).json({ message: 'Device deleted successfully!' });
+		} catch (e) {
+			return next(ApiError.internal('Failed to delete product.'));
 		}
 	}
 
 	async getAll(req, res) {
 		try {
-			let { CategoryId, limit, page } = req.query;
+			let { categoryId, limit, page } = req.query;
+
 			page = page || 1
 			limit = limit || 15;
 			let offset = page * limit - limit
 
-			let products = null;
-			if(CategoryId){
-				products = await Product.findAndCountAll({where: {CategoryId}, limit, offset}); // Получение всех записей
-			}
-			else{
-				products = await Product.findAndCountAll({limit, offset }); // Получение всех записей
-			}
+			const products = await Product.findAndCountAll({
+				...(categoryId && { where: { categoryId } }), 
+				limit, 
+				offset
+			}); // return all events from db
 			return res.status(200).json(products);
-		} catch (error) {
-			console.error(error);
-			return res.status(500).json({ error: 'Failed to fetch products.' });
+		} catch (e) {
+			return next(ApiError.internal('Failed to fetch product.'));
 		}
 	};
 
 	async getOne(req, res) {
 		try {
 			const { id } = req.params;
-			const product = await Product.findOne({
-				where: { id },
-				// include: []
-			});
-			if (!product) return res.status(404).json({ error: 'Product not found!' });
-			res.status(200).json(product);
-		} catch (error) {
-			res.status(500).json({ error: 'Error while get product!' });
+			const category = await Category.findOne({ where: { id } });
+			if (!category) return next(ApiError.notFound('Product not found!'));
+			res.status(200).json(category);
+		} catch (e) {
+			return next(ApiError.notFound('Error while get product!'));
 		}
 	};
-
-	async delete(req, res) {
-		try {
-			const { id } = req.body;
-
-			const product = await Product.findByPk(id);
-			if (!product) {
-				return res.status(404).json({ error: 'Product not found.' });
-			}
-
-			await product.destroy();
-			return res.status(200).json({ message: 'Product deleted successfully.' });
-		} catch (error) {
-			console.error(error);
-			return res.status(500).json({ error: 'Failed to delete product.' });
-		}
-	}
 }
 module.exports = new ProductController();

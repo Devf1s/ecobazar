@@ -73,10 +73,10 @@ const Product = sequelize.define('product', {
 		type: DataTypes.STRING,
 		allowNull: false
 	},
-	rating: {
-		type: DataTypes.INTEGER,
-		defaultValue: 0
-	},
+	// rating: {
+	// 	type: DataTypes.INTEGER,
+	// 	defaultValue: 0
+	// },
 	reviews: {
 		type: DataTypes.INTEGER,
 		defaultValue: 0
@@ -98,19 +98,6 @@ const Rating = sequelize.define('rating', {
 		type: DataTypes.INTEGER,
 		allowNull: false
 	},
-});
-
-// Review Model
-const Review = sequelize.define('review', {
-	id: {
-		type: DataTypes.INTEGER,
-		primaryKey: true,
-		autoIncrement: true
-	},
-	count: {
-		type: DataTypes.INTEGER,
-		defaultValue: 0
-	}
 });
 
 // Category Model
@@ -138,7 +125,7 @@ const ProductInfo = sequelize.define('product_info', {
 		allowNull: true
 	},
 	benefits: {
-		type: DataTypes.JSONB,
+		type: DataTypes.ARRAY(DataTypes.STRING),
 		allowNull: true,
 		defaultValue: []
 	}
