@@ -180,7 +180,6 @@ module.exports = {
 	BasketProduct,
 	Product,
 	Rating,
-	Review,
 	Category,
 	ProductInfo
 };
