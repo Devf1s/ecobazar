@@ -71,7 +71,7 @@ const Product = sequelize.define('product', {
 	},
 	image: {
 		type: DataTypes.STRING,
-		allowNull: false
+		allowNull: true
 	},
 	// rating: {
 	// 	type: DataTypes.INTEGER,
@@ -157,22 +157,6 @@ Product.hasOne(ProductInfo, {as: 'info'});
 ProductInfo.belongsTo(Product);
 
 
-// -------------------------
-// User.hasOne(Basket);
-// Basket.belongsTo(User);
-
-// Basket.belongsToMany(Product, { through: BasketProduct });
-// Product.belongsToMany(Basket, { through: BasketProduct });
-
-// Category.hasMany(Product);
-// Product.belongsTo(Category);
-
-// Product.hasMany(Review);
-// Review.belongsTo(Product);
-
-// User.hasMany(Review);
-// Review.belongsTo(User);
-// -------------------------
 
 module.exports = {
 	User,

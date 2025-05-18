@@ -1,41 +1,19 @@
 const ApiError = require('../error/ApiError');
-const { Product, Category, ProductInfo, Rating } = require('../models');
+const { Product, Category, ProductInfo, Rating } = require('../models/index');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
 // Helper
 const checkIdsExist = async (ids, model) => {
-	return Promise.all(ids.map(async (id) => await model.findByPk(id)));
+	return Promise.all(ids.map((id, i) => model[i].findByPk(id)));
 };
 
 class ProductController {
-	async create(req, res) {
+	async create(req, res, next) {
 		try {
-			const { 
-				name, price, salePrice, isSale, 
-				reviews, ratingId, categoryId, description, info 
-			} = req.body;
 
-			const [isCategory, isRating] = await checkIdsExist(
-				[categoryId, ratingId],
-				[Category, Rating]
-			);
-
-			// Validation
-			if (
-				[name, description].includes(undefined) || 
-				[price, salePrice, reviews].some(isNaN) || 
-				isSale == null
-			) {
-				return next(ApiError.badRequest('Missed required fields: Ensure all fields are valid and not empty'));
-			}
-			if (!isCategory) {
-				return next(ApiError.badRequest('Category does not exist.'));
-			}
-			if (!isRating) {
-				return next(ApiError.badRequest('Rating does not exist.'));
-			}
-
+			const { name, price, salePrice, isSale, description, categoryId, info } = req.body;
+			console.log(req.body)
 			let imagePath = null;
 
 			// Check if a file was uploaded
@@ -64,25 +42,39 @@ class ProductController {
 				salePrice,
 				isSale,
 				image: imagePath, // Null if no image is uploaded
-				reviews,
-				ratingId,
 				categoryId,
 				description
 			});
-			console.log(product);
 
+			// === 3. Додавання info, якщо є ===
 			if (info) {
-				info = JSON.parse(info);
-				info.forEach(el => {
-					ProductInfo.create({
-						description: el.description,
-						benefits: el.benefits,
-						productId: product.id
-					});
+				let parsedInfo;
+				try {
+				parsedInfo = JSON.parse(info);
+				} catch (e) {
+				return next(ApiError.badRequest('Info must be a valid JSON array.'));
+				}
+
+				if (!Array.isArray(parsedInfo)) {
+				return next(ApiError.badRequest('Info must be an array.'));
+				}
+
+				for (const item of parsedInfo) {
+				if (!item.description) {
+					return next(ApiError.badRequest('Each info item must contain a description.'));
+				}
+
+				await ProductInfo.create({
+					description: item.description,
+					benefits: item.benefits || [],
+					productId: product.id
 				});
+				}
 			}
-			return res.status(200).json(product);
+
+			return res.status(201).json(product);
 		} catch (e) {
+			console.log(e)
 			return next(ApiError.internal('Failed to create product.'));
 		}
 	}
@@ -94,7 +86,7 @@ class ProductController {
 			if (!deleted) {
 				return next(ApiError.badRequest('Product not found'));
 			}
-			return res.status(200).json({ message: 'Device deleted successfully!' });
+			return res.status(200).json({ message: 'Product deleted successfully!' });
 		} catch (e) {
 			return next(ApiError.internal('Failed to delete product.'));
 		}
@@ -122,9 +114,9 @@ class ProductController {
 	async getOne(req, res) {
 		try {
 			const { id } = req.params;
-			const category = await Category.findOne({ where: { id } });
-			if (!category) return next(ApiError.notFound('Product not found!'));
-			res.status(200).json(category);
+			const product = await Product.findByPk(id, { include: [{ model: ProductInfo, as: 'info' }, Category] });
+			if (!product) return res.status(404).json({ message: 'Product not found' });
+			return res.json(product);
 		} catch (e) {
 			return next(ApiError.notFound('Error while get product!'));
 		}

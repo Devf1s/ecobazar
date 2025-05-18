@@ -2,20 +2,8 @@ const ApiError = require('../error/ApiError');
 const { User, Basket } = require('../models');
 
 const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken'); // JSON Web Token for transmission to client
 const { validationResult } = require('express-validator');
 
-// const generateJwt = (id, email, role, next) => {
-// 	if (!process.env.SECRET_KEY) {
-// 		return next(ApiError.badRequest(jwtTokenErrorMessage));
-// 	}
-
-// 	return jwt.sign(
-// 		{ id, email, role },
-// 		process.env.SECRET_KEY,
-// 		{ expiresIn: '24h' }
-// 	);
-// }
 
 class UserController {
 	async register(req, res, next) {
@@ -35,8 +23,9 @@ class UserController {
 			if (candidate) {
 				return next(ApiError.duplicate('User with such email already exists!'));
 			}	
-			
-			const user = await User.create({email, password})
+			const hashPassword = await bcrypt.hash(password, 5);
+
+			const user = await User.create({email, password: hashPassword})
 			const basket = await Basket.create({ userId: user.id });	
 			return res.status(200).json({ message: 'User created!', user: user });
 		} catch (e) {
